@@ -547,12 +547,75 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  /* ── RESPONSIVE ── */
-  @media(max-width: 600px) {
-    header { padding: 16px; }
-    .theme-toggle { margin-left: 0; width: 100%; justify-content: center; }
-    .nav-bar, .stats, .legend { padding-left: 16px; padding-right: 16px; }
-    main { padding: 16px; }
+  /* ── RESPONSIVE & MOBILE POLISH ── */
+  @media (max-width: 768px) {
+    header { padding: 14px 18px; gap: 12px; }
+    header .logo { font-size: 1.35rem; }
+    .badge { order: 2; margin-left: auto; font-size: 0.72rem; padding: 4px 10px; }
+    .theme-toggle { order: 3; margin-left: 0; font-size: 0.78rem; padding: 5px 12px; }
+
+    /* Horizontal scrollable app-style nav bar */
+    .nav-bar {
+      padding: 10px 16px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-bar a { font-size: 0.76rem; padding: 5px 12px; flex-shrink: 0; }
+
+    /* Clean 2-column stats grid on mobile */
+    .stats {
+      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .stat { padding: 8px 12px; font-size: 0.76rem; text-align: center; }
+
+    .legend { padding: 10px 16px; font-size: 0.74rem; gap: 8px; flex-direction: column; align-items: flex-start; }
+    main { padding: 18px 12px; }
+
+    .module-header { padding: 14px 16px; margin: 24px 0 14px; gap: 12px; }
+    .module-header .num { width: 34px; height: 34px; font-size: 0.95rem; }
+    .module-header h2 { font-size: 1.1rem; }
+
+    .q-header { padding: 12px 14px; gap: 10px; }
+    .q-num { min-width: 28px; height: 28px; font-size: 0.78rem; }
+    .q-text { font-size: 0.9rem; }
+    .tag { font-size: 0.66rem; padding: 2px 7px; }
+
+    .answer-body { padding: 14px 14px; }
+    .answer-text { font-size: 0.88rem; line-height: 1.75; }
+
+    /* Responsive Tables - horizontal touch swipe */
+    .answer-text table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      font-size: 0.8rem;
+    }
+    .answer-text th, .answer-text td { padding: 7px 10px; white-space: nowrap; }
+
+    /* Responsive Equations & Diagrams */
+    .eq-block { padding: 10px 12px; margin: 10px 0; font-size: 0.92rem; }
+    .diagram { padding: 16px 10px; }
+    .diagram .img-name { font-size: 0.72rem; padding: 3px 10px; word-break: break-all; }
+
+    /* Mobile bottom-sheet style tooltip */
+    .tech-term:hover::after {
+      position: fixed;
+      bottom: 20px;
+      left: 16px;
+      right: 16px;
+      max-width: none;
+      min-width: auto;
+      margin: 0 auto;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
   }
 </style>
 </head>
