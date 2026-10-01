@@ -549,7 +549,9 @@
 
   /* ── RESPONSIVE & MOBILE POLISH ── */
   @media (max-width: 768px) {
-    header { padding: 14px 18px; gap: 12px; }
+    /* Hide header titles on mobile as requested */
+    .desktop-only { display: none !important; }
+    header { padding: 10px 16px; justify-content: flex-end; }
     header .logo { font-size: 1.35rem; }
     .badge { order: 2; margin-left: auto; font-size: 0.72rem; padding: 4px 10px; }
     .theme-toggle { order: 3; margin-left: 0; font-size: 0.78rem; padding: 5px 12px; }
@@ -623,15 +625,15 @@
 
 <!-- HEADER -->
 <header>
-  <div>
+  <div class="desktop-only">
     <div class="logo">EET<span>426</span></div>
     <div class="sub">APJ Abdul Kalam Technological University · B.Tech S8</div>
   </div>
-  <div style="flex:1;min-width:200px;">
+  <div class="desktop-only" style="flex:1;min-width:200px;">
     <div style="font-size:1rem;font-weight:700;color:var(--text-heading);">Special Electric Machines</div>
     <div style="font-size:.8rem;color:var(--muted);">Complete Q&amp;A Study Guide · 2019 Scheme</div>
   </div>
-  <div class="badge">2023 – 2026 Papers</div>
+  <div class="badge desktop-only">2023 – 2026 Papers</div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Switch Light/Dark Mode" aria-label="Toggle theme">
     <span class="theme-icon">☀️</span>
     <span class="theme-text">Light Mode</span>
