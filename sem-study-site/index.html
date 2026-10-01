@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EET426 – Special Electric Machines | Study Guide</title>
+<script>
+  (function(){
+    const saved = localStorage.getItem('sem_theme');
+    if (saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<!-- KaTeX for natural equation rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'$$',right:'$$',display:true},
+      {left:'$',right:'$',display:false}
+    ],
+    throwOnError:false
+  })"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d2e;
+    --card2: #1e2235;
+    --accent: #6c63ff;
+    --accent-hover: #7f77ff;
+    --gold: #ffd700;
+    --red: #ff4d6d;
+    --green: #00e676;
+    --teal: #00bcd4;
+    --text: #e0e0e0;
+    --text-heading: #ffffff;
+    --muted: #94a3b8;
+    --border: #2a2d45;
+    --imp-bg: #2d1a00;
+    --imp-border: #ff9800;
+    --imp-header-bg: #1c1500;
+    --imp-num-bg: #2d1a00;
+    --term-bg: #1a2a1a;
+    --term-hl: #00e676;
+    --term-border: #1a3a1a;
+    --header-bg: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%);
+    --nav-bg: #12141f;
+    --stats-bg: #13161f;
+    --legend-bg: #13161f;
+    --footer-bg: #12141f;
+    --eq-bg: #0a1020;
+    --eq-border: #1e3a60;
+    --eq-vars-bg: #0f1520;
+    --eq-vars-border: #1e2d45;
+    --formula-bg: #0d1520;
+    --formula-border: #1e3a60;
+    --formula-text: #7dd3fc;
+    --th-bg: #1e2235;
+    --tr-even: #15182a;
+    --td-color: #bbb;
+    --diagram-bg: #12141f;
+    --diagram-border: #2a2d45;
+    --img-name-bg: #1a1d2e;
+    --img-name-text: #6c63ff;
+    --q-text-color: #d0d0d0;
+    --h5-color: #a0c4ff;
+    --tag-marks-bg: #1a2040;
+    --tag-marks-color: #00bcd4;
+    --tag-marks-border: #1f3060;
+    --tag-year-bg: #1a1a30;
+    --tag-year-color: #a0a0ff;
+    --tag-year-border: #2a2a50;
+    --tag-part-bg: #1a2a1a;
+    --tag-part-color: #00e676;
+    --tag-part-border: #1a3a1a;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --card-hover-border: #3a3d55;
+    --term-card-bg: #0f1117;
+  }
+
+  [data-theme="light"] {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --card2: #f1f5f9;
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --gold: #d97706;
+    --red: #e11d48;
+    --green: #059669;
+    --teal: #0891b2;
+    --text: #334155;
+    --text-heading: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --imp-bg: #fffbeb;
+    --imp-border: #f59e0b;
+    --imp-header-bg: #fffbeb;
+    --imp-num-bg: #fef3c7;
+    --term-bg: #ecfdf5;
+    --term-hl: #047857;
+    --term-border: #a7f3d0;
+    --header-bg: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    --nav-bg: #f1f5f9;
+    --stats-bg: #f8fafc;
+    --legend-bg: #f1f5f9;
+    --footer-bg: #ffffff;
+    --eq-bg: #f8fafc;
+    --eq-border: #cbd5e1;
+    --eq-vars-bg: #f1f5f9;
+    --eq-vars-border: #cbd5e1;
+    --formula-bg: #f1f5f9;
+    --formula-border: #cbd5e1;
+    --formula-text: #0284c7;
+    --th-bg: #f1f5f9;
+    --tr-even: #f8fafc;
+    --td-color: #334155;
+    --diagram-bg: #f8fafc;
+    --diagram-border: #cbd5e1;
+    --img-name-bg: #e0e7ff;
+    --img-name-text: #4338ca;
+    --q-text-color: #0f172a;
+    --h5-color: #2563eb;
+    --tag-marks-bg: #e0f2fe;
+    --tag-marks-color: #0284c7;
+    --tag-marks-border: #bae6fd;
+    --tag-year-bg: #e0e7ff;
+    --tag-year-color: #4338ca;
+    --tag-year-border: #c7d2fe;
+    --tag-part-bg: #dcfce7;
+    --tag-part-color: #15803d;
+    --tag-part-border: #bbf7d0;
+    --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+    --card-hover-border: #94a3b8;
+    --term-card-bg: #f8fafc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--header-bg);
+    border-bottom: 2px solid var(--accent);
+    padding: 20px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  header .logo { font-size: 1.6rem; font-weight: 800; color: var(--text-heading); letter-spacing: -1px; }
+  header .logo span { color: var(--accent); }
+  header .sub { font-size: .85rem; color: var(--muted); }
+  header .badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+  }
+
+  /* ── THEME TOGGLE BUTTON ── */
+  .theme-toggle {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 7px 16px;
+    border-radius: 24px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: var(--card-shadow);
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+  }
+  .theme-toggle .theme-icon { font-size: 1.05rem; line-height: 1; }
+
+  /* ── NAV PILLS ── */
+  .nav-bar {
+    display: flex;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--nav-bg);
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .nav-bar a {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: .82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: var(--card);
+    white-space: nowrap;
+    transition: .2s;
+  }
+  .nav-bar a:hover, .nav-bar a.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  }
+
+  /* ── STATS BAR ── */
+  .stats {
+    display: flex;
+    gap: 12px;
+    padding: 12px 32px;
+    background: var(--stats-bg);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: .82rem;
+    color: var(--text);
+    box-shadow: var(--card-shadow);
+    transition: all 0.25s ease;
+  }
+  .stat b { color: var(--accent); }
+  .stat.imp { border-color: var(--imp-border); }
+  .stat.imp b { color: var(--gold); }
+
+  /* ── MAIN ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
+
+  /* ── MODULE HEADER ── */
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 36px 0 16px;
+    padding: 18px 24px;
+    background: var(--card);
+    border-radius: 14px;
+    border-left: 4px solid var(--accent);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .module-header .num {
+    background: var(--accent);
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .module-header h2 { font-size: 1.25rem; color: var(--text-heading); margin-bottom: 2px; }
+  .module-header p { font-size: .82rem; color: var(--muted); }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: border-color .2s ease, box-shadow .2s ease, background 0.25s ease;
+  }
+  .q-card:hover { border-color: var(--card-hover-border); }
+  .q-card.important { border-color: var(--imp-border); background: var(--card); }
+  .q-card.important .q-header { background: var(--imp-header-bg); }
+
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+  }
+  .q-header:hover { background: var(--card2); }
+  .q-num {
+    min-width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: var(--card2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .q-card.important .q-num { background: var(--imp-num-bg); color: var(--gold); }
+
+  .q-meta { flex: 1; }
+  .q-text { font-size: .97rem; color: var(--q-text-color); font-weight: 600; line-height: 1.5; }
+  .q-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .tag { font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; }
+  .tag.marks { background: var(--tag-marks-bg); color: var(--tag-marks-color); border: 1px solid var(--tag-marks-border); }
+  .tag.year { background: var(--tag-year-bg); color: var(--tag-year-color); border: 1px solid var(--tag-year-border); }
+  .tag.imp-tag { background: var(--imp-bg); color: var(--gold); border: 1px solid var(--imp-border); }
+  .tag.part { background: var(--tag-part-bg); color: var(--tag-part-color); border: 1px solid var(--tag-part-border); }
+
+  .q-arrow { margin-left: auto; color: var(--muted); transition: .3s; font-size: 1.2rem; }
+  .q-card.open .q-arrow { transform: rotate(180deg); }
+
+  /* ── ANSWER ── */
+  .q-answer { display: none; border-top: 1px solid var(--border); }
+  .q-card.open .q-answer { display: block; }
+
+  .answer-body { padding: 20px 24px; background: var(--card); }
+  .answer-body h4 {
+    font-size: .92rem;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .answer-text { font-size: .94rem; line-height: 1.85; color: var(--text); }
+  .answer-text p { margin-bottom: 10px; }
+  .answer-text ul, .answer-text ol { padding-left: 22px; margin-bottom: 10px; }
+  .answer-text li { margin-bottom: 6px; }
+  .answer-text h5 { color: var(--h5-color); margin: 16px 0 8px; font-size: .97rem; font-weight: 700; }
+  .answer-text .formula {
+    background: var(--formula-bg);
+    border: 1px solid var(--formula-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: monospace;
+    font-size: .9rem;
+    color: var(--formula-text);
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+
+  /* ── KaTeX Equation Blocks ── */
+  .eq-block {
+    background: var(--eq-bg);
+    border-left: 4px solid var(--accent);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    margin: 14px 0;
+    overflow-x: auto;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+  }
+  .eq-block .katex-display { margin: 0; }
+  .eq-inline .katex { font-size: 1.05em; }
+  .eq-vars {
+    background: var(--eq-vars-bg);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin: 8px 0;
+    font-size: .85rem;
+    color: var(--text);
+    border: 1px solid var(--eq-vars-border);
+    line-height: 2;
+  }
+  .eq-vars .katex { font-size: .95em; }
+  .eq-step { display: flex; align-items: flex-start; gap: 12px; margin: 6px 0; }
+  .eq-step .step-num {
+    min-width: 22px;
+    height: 22px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .answer-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: .88rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+  }
+  .answer-text th {
+    background: var(--th-bg);
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--accent);
+    font-weight: 700;
+    border: 1px solid var(--border);
+  }
+  .answer-text td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    color: var(--td-color);
+    background: var(--card);
+  }
+  .answer-text tr:nth-child(even) td { background: var(--tr-even); }
+
+  /* ── TECHNICAL TERMS ── */
+  .tech-term {
+    background: var(--term-bg);
+    color: var(--term-hl);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 1px solid var(--term-border);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+  }
+  .tech-term:hover::after {
+    content: attr(data-def);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    min-width: 220px;
+    max-width: 320px;
+    background: #0f172a;
+    color: #f8fafc;
+    font-size: .78rem;
+    font-weight: 400;
+    padding: 9px 13px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    z-index: 999;
+    line-height: 1.5;
+    white-space: normal;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* ── DIAGRAM PLACEHOLDER ── */
+  .diagram {
+    background: var(--diagram-bg);
+    border: 2px dashed var(--diagram-border);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .diagram .img-name {
+    font-family: monospace;
+    font-size: .85rem;
+    color: var(--img-name-text);
+    background: var(--img-name-bg);
+    padding: 4px 14px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .diagram p { font-size: .82rem; color: var(--muted); }
+  .diagram img { max-width: 100%; border-radius: 8px; display: none; }
+  .diagram img.loaded { display: block; margin: 0 auto; box-shadow: var(--card-shadow); }
+
+  /* ── TERM GLOSSARY ── */
+  .glossary-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 40px;
+    box-shadow: var(--card-shadow);
+  }
+  .glossary-section h3 { color: var(--green); margin-bottom: 18px; font-size: 1.1rem; }
+  .term-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .term-card {
+    background: var(--term-card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: var(--card-shadow);
+  }
+  .term-card .term { color: var(--term-hl); font-weight: 700; font-size: .92rem; margin-bottom: 4px; }
+  .term-card .def { color: var(--muted); font-size: .82rem; line-height: 1.5; }
+
+  /* ── IMPORTANCE LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 14px;
+    padding: 12px 32px;
+    background: var(--legend-bg);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    font-size: .8rem;
+    color: var(--muted);
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 28px 24px;
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: 40px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 600px) {
+    header { padding: 16px; }
+    .theme-toggle { margin-left: 0; width: 100%; justify-content: center; }
+    .nav-bar, .stats, .legend { padding-left: 16px; padding-right: 16px; }
+    main { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div>
+    <div class="logo">EET<span>426</span></div>
+    <div class="sub">APJ Abdul Kalam Technological University · B.Tech S8</div>
+  </div>
+  <div style="flex:1;min-width:200px;">
+    <div style="font-size:1rem;font-weight:700;color:var(--text-heading);">Special Electric Machines</div>
+    <div style="font-size:.8rem;color:var(--muted);">Complete Q&amp;A Study Guide · 2019 Scheme</div>
+  </div>
+  <div class="badge">2023 – 2026 Papers</div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Switch Light/Dark Mode" aria-label="Toggle theme">
+    <span class="theme-icon">☀️</span>
+    <span class="theme-text">Light Mode</span>
+  </button>
+</header>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span><span class="dot" style="background:var(--gold);"></span>⭐ Important / Repeated Question</span>
+  <span><span class="dot" style="background:var(--green);"></span><span class="tech-term" data-def="Highlighted word = Technical term to memorise">Technical Term</span> hover for definition</span>
+  <span><span class="dot" style="background:var(--teal);"></span>📐 Diagram placeholder (upload image)</span>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <a href="#parta" class="active">Part A (3-mark)</a>
+  <a href="#mod1">Module I – BLDC &amp; PMSM</a>
+  <a href="#mod2">Module II – Stepper Motors</a>
+  <a href="#mod3">Module III – SRM</a>
+  <a href="#mod4">Module IV – Servomotors</a>
+  <a href="#mod5">Module V – Linear &amp; Special</a>
+  <a href="#glossary">📚 Glossary</a>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">Total Questions: <b>73+</b></div>
+  <div class="stat imp">⭐ Important: <b>30</b></div>
+  <div class="stat">Papers Covered: <b>4</b> (2023–2026)</div>
+  <div class="stat">Modules: <b>5</b></div>
+  <div class="stat">3-mark Qs: <b>18</b></div>
+  <div class="stat">14-mark Qs: <b>15 sets</b></div>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════
+     PART A – 3-MARK QUESTIONS
+════════════════════════════════════════════ -->
+<div id="parta">
+<div class="module-header">
+  <div class="num">A</div>
+  <div>
+    <h2>Part A — Short Answer Questions</h2>
+    <p>Each question carries <b>3 marks</b> · Half-page answers · Answer ALL</p>
+  </div>
+</div>
+
+<!-- Q1 -->
+<div class="q-card important open" id="q1">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">1</div>
+    <div class="q-meta">
+      <div class="q-text">Enumerate the applications of permanent magnet brushless DC (BLDC) motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Permanent Magnet Brushless DC (BLDC) Motor: An electronically commutated synchronous motor powered by DC supply via an inverter, with permanent magnets on the rotor and 3-phase windings on the stator.">Permanent Magnet Brushless DC (BLDC) motor</span> is an electronically commutated motor with permanent magnets on the rotor and a polyphase winding on the stator. Due to the absence of mechanical brushes and commutator, it provides high efficiency, high power-to-weight ratio, and maintenance-free operation.</p>
+        <h5>Key Applications:</h5>
+        <ol>
+          <li><b>Electric Vehicles (EVs) &amp; Mobility:</b> Hub motors and central drive motors in electric two-wheelers (e-bikes, e-scooters), electric cars, and golf carts.</li>
+          <li><b>Computer Peripherals &amp; Consumer Electronics:</b> Spindle drives for hard disk drives (HDDs), optical disc drives (CD/DVD), and cooling fans in PCs.</li>
+          <li><b>Industrial Automation &amp; Robotics:</b> Actuators in robotic arms, feed drives in CNC machine tools, and precision conveyor systems.</li>
+          <li><b>Aerospace &amp; Drones (UAVs):</b> Propulsion motors in quadcopters/drones, aircraft flight control surface actuators, and gyroscopes.</li>
+          <li><b>Medical Equipment:</b> Artificial blood pumps (ventricular assist devices), high-speed surgical drills, ventilators, and dental tools.</li>
+          <li><b>Domestic &amp; HVAC Appliances:</b> Energy-efficient BLDC ceiling fans, inverter air conditioners, washing machine direct-drive drums, and refrigerators.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">bldc_applications.png</div>
+          <p>Upload image showing BLDC application domains</p>
+          <img src="images/bldc_applications.png" alt="BLDC applications" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-card important" id="q2">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">2</div>
+    <div class="q-meta">
+      <div class="q-text">What are the features of permanent magnets used in permanent magnet DC (PMDC) motors?</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>In <span class="tech-term" data-def="PMDC Motor: A DC motor where stator field poles are made of permanent magnets instead of electromagnetic field coils, eliminating field copper losses.">Permanent Magnet DC (PMDC) motors</span>, permanent magnets replace the conventional stator field windings to produce the required working magnetic flux without consuming electrical power.</p>
+        <h5>Key Features &amp; Desirable Properties:</h5>
+        <ol>
+          <li><b>High Remanent Flux Density ($B_r$):</b> Establishes a strong magnetic field in the air gap, enabling high torque output from a compact motor frame size.</li>
+          <li><b>High Coercivity ($H_c$):</b> Provides high resistance against demagnetization caused by heavy armature reaction MMF during starting, stall, and dynamic braking.</li>
+          <li><b>High Maximum Energy Product ($(BH)_{\max}$):</b> Minimizes the required volume and weight of the permanent magnet, ensuring high power density.</li>
+          <li><b>High Curie Temperature &amp; Thermal Stability:</b> Prevents loss of magnetic properties and irreversible demagnetization across standard operating temperature ranges.</li>
+          <li><b>High Electrical Resistivity:</b> Suppresses induced eddy-current losses within the magnet core caused by stator slotting flux harmonics.</li>
+          <li><b>Materials Commonly Employed:</b> <span class="tech-term" data-def="Alnico: Alloy of Aluminium, Nickel, and Cobalt. High Br, low Hc.">Alnico</span> (high $B_r$, low $H_c$), <span class="tech-term" data-def="Ferrite: Ceramic oxide magnet. Low cost, high resistivity, moderate Hc.">Ferrites</span> (low cost, corrosion resistant), and <span class="tech-term" data-def="Rare-Earth Magnets: NdFeB and SmCo magnets offering exceptionally high BHmax.">Rare-Earth Magnets</span> ($	ext{NdFeB}$ and $	ext{SmCo}$) for high-performance applications.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-card important" id="q3">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">3</div>
+    <div class="q-meta">
+      <div class="q-text">Describe the various types of windings employed in a stepper motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Stator windings in stepper motors are wound on laminated salient poles and sequentially energized by DC pulses to produce incremental stepping motion. Two main types of windings are employed:</p>
+        <h5>1. Unifilar (Monofilar) Winding:</h5>
+        <ul>
+          <li><b>Construction:</b> A single continuous strand of insulated copper wire is wound on each stator pole.</li>
+          <li><b>Drive Requirement:</b> Requires a bipolar drive circuit (<span class="tech-term" data-def="H-Bridge: An electronic circuit configuration that enables voltage and current to be applied in either direction across a motor winding.">full H-bridge</span>) to reverse current direction through the coil in order to alternate magnetic polarity ($N \leftrightarrow S$).</li>
+          <li><b>Performance:</b> Offers $100\%$ copper utilization (entire slot area produces flux during conduction), yielding higher torque for a given motor size.</li>
+        </ul>
+        <h5>2. Bifilar Winding:</h5>
+        <ul>
+          <li><b>Construction:</b> Two identical strands of insulated wire are wound simultaneously in parallel on the same pole.</li>
+          <li><b>Drive Requirement:</b> Driven by a simple unipolar drive circuit (single switching transistor per strand). One strand produces North polarity and the second produces South polarity by carrying current in only one direction.</li>
+          <li><b>Performance:</b> Simplifies drive electronics and lowers inverter cost, but only $50\%$ of the copper is active at any instant, resulting in lower torque density.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">stepper_windings.png</div>
+          <p>Upload diagram showing monofilar vs bifilar windings</p>
+          <img src="images/stepper_windings.png" alt="Stepper motor windings" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-card important" id="q4">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">4</div>
+    <div class="q-meta">
+      <div class="q-text">Draw and explain the dynamic characteristics of a stepper motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>The dynamic characteristics of a stepper motor describe its torque-generating capability and operational boundaries as a function of the input stepping pulse frequency (pulses per second, pps):</p>
+        <h5>Key Operational Boundaries &amp; Curves:</h5>
+        <ol>
+          <li><b><span class="tech-term" data-def="Pull-In Torque Characteristic: The boundary curve representing the maximum load torque at which the motor can start, stop, or reverse instantaneously without losing synchronism (losing steps).">Pull-In Characteristic (Start-Stop Curve)</span>:</b> Defines the maximum load torque at which the motor can start, stop, or reverse instantaneously at a given pulse rate without losing synchronism. The area enclosed below this curve is the <b>Start-Stop Region</b>.</li>
+          <li><b><span class="tech-term" data-def="Pull-Out Torque Characteristic: The boundary curve representing the maximum torque developed by a running motor at a given pulse rate before it stalls.">Pull-Out Characteristic (Slewing Curve)</span>:</b> Represents the maximum torque developed when the motor is already running at that stepping rate. If load torque exceeds this curve, the motor stalls.</li>
+          <li><b>Slewing Region:</b> The operational zone located between the pull-in and pull-out curves. Inside this region, the motor can run stably, but cannot start or stop abruptly — it must be accelerated (ramped up) from the start-stop region and decelerated (ramped down) to come to a stop.</li>
+          <li><b>Maximum Response Frequencies:</b> $f_s$ is the maximum starting rate at zero load torque, and $f_m$ is the maximum slewing rate.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">stepper_dynamic_characteristics.png</div>
+          <p>Upload graph showing Pull-In curve, Pull-Out curve, and Slew range vs Pulse Rate</p>
+          <img src="images/stepper_dynamic_characteristics.png" alt="Stepper motor dynamic characteristics" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-card important" id="q5">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">5</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the relevance of the rotor position sensor in the operation of a Switched Reluctance Motor (SRM).</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Switched Reluctance Motor (SRM): A doubly-salient, singly-excited motor that operates on the principle of variable reluctance. Stator phases are energized sequentially based on rotor position.">Switched Reluctance Motor (SRM)</span> develops electromagnetic torque exclusively through the tendency of its salient rotor to align with the energized stator pole at the minimum reluctance position ($T = \frac{1}{2} i^2 \frac{dL}{d\theta}$).</p>
+        <h5>Relevance and Role of Rotor Position Sensor:</h5>
+        <ol>
+          <li><b>Phase Synchronization with Inductance Slope:</b> Positive (motoring) torque is generated only when phase current flows during the interval of rising inductance ($\frac{dL}{d\theta} > 0$). The sensor detects the exact angle to turn on the phase switches.</li>
+          <li><b>Prevention of Negative (Braking) Torque:</b> If a phase winding remains energized when the rotor passes alignment into the falling inductance region ($\frac{dL}{d\theta} < 0$), braking torque is produced, causing deceleration and heavy losses. The sensor ensures precise turn-off.</li>
+          <li><b>Converter Commutation Timing:</b> Position sensors (Hall sensors, optical encoders, or resolvers) signal the electronic controller to trigger the turn-on angle ($\theta_{\text{on}}$) and turn-off angle ($\theta_{\text{off}}$) of the power converter switches.</li>
+          <li><b>Reliable Starting &amp; Direction Control:</b> Stator phase sequence must be synchronized with initial rotor position to guarantee starting in the forward or reverse direction without stalling or hesitation.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-card" id="q6">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">6</div>
+    <div class="q-meta">
+      <div class="q-text">List any two causes for noise in a switched reluctance motor and explain how they can be mitigated.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Acoustic noise and mechanical vibration are primary operational challenges in a <span class="tech-term" data-def="SRM Noise: Caused mainly by the sudden collapse of radial magnetic pull between opposing poles and torque pulsation.">Switched Reluctance Motor (SRM)</span> due to its doubly-salient structure and discrete phase pulsing.</p>
+        <h5>Two Major Causes of Noise &amp; Their Mitigation:</h5>
+        <ol>
+          <li><b>Cause 1: Sudden Collapse of Radial Magnetic Pull:</b>
+            <ul>
+              <li><i>Mechanism:</i> Strong radial magnetic attractive forces pull opposing stator poles inward during conduction. When the phase current is abruptly switched off at commutation, this radial force collapses to zero, causing the stator frame to spring back and oscillate violently, radiating loud acoustic noise.</li>
+              <li><i>Mitigation:</i> Use <b>two-step demagnetization (soft commutation)</b> to decay current gradually, or increase the radial thickness of the stator back-iron to raise the frame's mechanical resonant frequency.</li>
+            </ul>
+          </li>
+          <li><b>Cause 2: Torque Ripple &amp; Torsional Vibration:</b>
+            <ul>
+              <li><i>Mechanism:</i> Discontinuous phase excitation and non-linear magnetic saturation lead to pulsating output torque, inducing torsional oscillations along the drive shaft.</li>
+              <li><i>Mitigation:</i> Implement advanced current profiling using <b>Torque Sharing Functions (TSF)</b> that smoothly overlap incoming and outgoing phase currents to maintain constant total shaft torque.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-card important" id="q7">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">7</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the role of servomotors in automation systems.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Servomotor: A specialized rotary or linear actuator designed for closed-loop control systems, providing precise regulation of angular position, velocity, and acceleration.">servomotor</span> is an electromechanical actuator engineered specifically to operate within closed-loop feedback control systems to provide precise, rapid, and repeatable motion control.</p>
+        <h5>Role in Automation Systems:</h5>
+        <ol>
+          <li><b>Closed-Loop Position &amp; Velocity Tracking:</b> Continuously receives command signals from an automation controller (PLC or CNC) and compares them with real-time feedback from an encoder or resolver, driving tracking error strictly to zero.</li>
+          <li><b>Fast Dynamic Acceleration &amp; Deceleration:</b> Designed with a long, slender rotor to achieve exceptionally low rotor moment of inertia ($J$) and high torque-to-inertia ratio ($T/J$), enabling millisecond-level start, stop, and reversal cycles.</li>
+          <li><b>Linear Torque-Speed Characteristics &amp; Stability:</b> Exhibits a linear torque-speed curve with a steep negative slope, providing strong internal damping to prevent overshoot and hunting around the setpoint.</li>
+          <li><b>Static Holding Capability:</b> Delivers continuous rated holding torque at zero speed to lock robotic joints and machine slides firmly in place against gravitational or external cutting loads.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-card" id="q8">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">8</div>
+    <div class="q-meta">
+      <div class="q-text">Enumerate the applications of the servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p><span class="tech-term" data-def="Servomotor Applications: Widely used in precision closed-loop positioning, robotics, automated machinery, and aerospace systems.">Servomotors</span> (AC permanent-magnet and DC types) are essential wherever high positioning accuracy, rapid dynamic response, and programmable speed trajectories are required.</p>
+        <h5>Key Applications:</h5>
+        <ol>
+          <li><b>CNC Machine Tools:</b> Multi-axis feed drives (X, Y, Z axes), tool turrets, and high-speed spindle positioning.</li>
+          <li><b>Industrial Robotics:</b> Articulated joint actuators in welding, painting, assembly, and collaborative robots (Cobots).</li>
+          <li><b>Automated Packaging Machinery:</b> High-speed carton erecting, bottle filling, label placement, and web indexing.</li>
+          <li><b>Aerospace &amp; Defense:</b> Actuators for aircraft fly-by-wire flight control surfaces, missile fin steering, and radar antenna tracking.</li>
+          <li><b>Medical &amp; Surgical Equipment:</b> Robotic surgical manipulators, automated patient table positioners in CT/MRI systems, and prosthetics.</li>
+          <li><b>Printing &amp; Textile Machines:</b> High-precision multi-color printing registration, synchronized fabric feed rollers, and computer-controlled knitting machines.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-card important" id="q9">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">9</div>
+    <div class="q-meta">
+      <div class="q-text">Draw the equivalent circuit and phasor diagram of a repulsion motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Repulsion Motor: A single-phase AC motor with a distributed stator winding and a DC armature rotor with short-circuited brushes shifted by an angle from the stator magnetic axis.">repulsion motor</span> consists of a stator carrying a distributed single-phase AC winding and a rotor having a conventional DC armature winding connected to a commutator. The brushes are short-circuited together and physically shifted by an angle $\alpha$ from the stator field axis.</p>
+        <h5>Working &amp; Circuit Parameters:</h5>
+        <ul>
+          <li><b>Equivalent Circuit:</b>
+            <ul>
+              <li>Stator winding is represented by series resistance $R_1$ and leakage reactance $X_1$ across AC supply $V_1$.</li>
+              <li>Mutual inductive coupling links the stator to the short-circuited rotor circuit.</li>
+              <li>Rotor equivalent circuit comprises referred resistance $R_2'$, referred leakage reactance $X_2'$, and speed-induced rotational back-EMF.</li>
+            </ul>
+          </li>
+          <li><b>Phasor Relationships:</b>
+            <ul>
+              <li>Stator current $\bar{I}_1$ lags supply voltage $\bar{V}_1$ by phase angle $\phi$.</li>
+              <li>Stator impedance drop is $\bar{I}_1 (R_1 + jX_1)$.</li>
+              <li>Rotor induced current $\bar{I}_2$ produces a rotor magnetic axis displaced by angle $\alpha$, creating mutual repulsion torque proportional to $\sin(2\alpha)$.</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">repulsion_motor_circuit_phasor.png</div>
+          <p>Upload diagram showing the repulsion motor equivalent circuit and phasor diagram</p>
+          <img src="images/repulsion_motor_circuit_phasor.png" alt="Repulsion motor circuit and phasor" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-card" id="q10">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">10</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the relevance of compensating winding in an AC series motor. Also draw its phasor diagram.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2026</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>When an AC series motor operates on single-phase alternating current, the large cross-magnetizing armature reaction MMF produces severe operating drawbacks: low power factor, field distortion, and heavy brush sparking.</p>
+        <h5>Relevance &amp; Function of Compensating Winding:</h5>
+        <ol>
+          <li><b>Neutralizes Armature Cross-Flux:</b> The compensating winding is embedded in pole-face slots and connected in series with the armature such that its current flows opposite to the adjacent armature conductors, canceling cross-magnetizing flux.</li>
+          <li><b>Improves Operating Power Factor ($\cos\phi$):</b> By canceling the armature self-inductance ($L_a$), the total inductive reactance drop is reduced from $I(X_f + X_a)$ to $I(X_f + X_a - X_c) \approx I X_f$, significantly reducing the voltage-current phase angle $\phi$.</li>
+          <li><b>Suppresses Brush Sparking:</b> Eliminates flux distortion at pole tips and reduces transformer EMF induced in coils undergoing brush commutation, ensuring sparkless commutation.</li>
+        </ol>
+        <h5>Phasor Diagram Description:</h5>
+        <p>Current phasor $I$ is taken as the reference. In-phase voltage drops include $I(R_a + R_{se} + R_c)$ and rotational back-EMF $E_b$. Quadrature drops include field reactance drop $j I X_{se}$ and net armature reactance drop $j I (X_a - X_c)$. The resultant terminal voltage $\bar{V}$ has a much smaller phase angle $\phi$, confirming improved power factor.</p>
+        
+        <div class="diagram">
+          <div class="img-name">ac_series_motor_phasor.png</div>
+          <p>Upload phasor diagram of AC series motor with compensating winding</p>
+          <img src="images/ac_series_motor_phasor.png" alt="AC series motor phasor" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A1 – Step angle derivation 3-phase 3-stack VR stepper -->
+<div class="q-card important" id="qa1">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A1</div>
+    <div class="q-meta">
+      <div class="q-text">Derive the step angle for a 3-phase, 3-stack variable reluctance stepper motor with 10 rotor teeth.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>For a multi-stack variable reluctance stepper motor, each stack represents one phase, and the stator poles of adjacent stacks are angularly displaced from one another.</p>
+        <h5>Formula:</h5>
+        <div class="eq-block">
+          $$\beta = \frac{360^\circ}{m \cdot N_r}$$
+        </div>
+        <p>Where:</p>
+        <div class="eq-vars">
+          $m$ = Number of stacks (phases) = $3$<br/>
+          $N_r$ = Number of rotor teeth per stack = $10$
+        </div>
+        <h5>Step-by-Step Derivation &amp; Calculation:</h5>
+        <ol>
+          <li><b>Rotor Tooth Pitch ($\tau_r$):</b> The angular distance between adjacent rotor teeth is:
+            $$\tau_r = \frac{360^\circ}{N_r} = \frac{360^\circ}{10} = 36^\circ$$
+          </li>
+          <li><b>Angular Stack Shift:</b> In a 3-stack configuration, the stator pole teeth of successive stacks are shifted by:
+            $$\text{Shift} = \frac{\tau_r}{m} = \frac{36^\circ}{3} = 12^\circ$$
+          </li>
+          <li><b>Step Angle Calculation:</b>
+            $$\beta = \frac{360^\circ}{3 \times 10} = \frac{360^\circ}{30} = 12^\circ$$
+          </li>
+        </ol>
+        <p><b>Conclusion:</b> The step angle $\beta = 12^\circ$. Energizing the stacks in sequence (Stack 1 $\rightarrow$ Stack 2 $\rightarrow$ Stack 3) produces a step rotation of $12^\circ$ per excitation step.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A2 – Modes of operation of stepper motors -->
+<div class="q-card important" id="qa2">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A2</div>
+    <div class="q-meta">
+      <div class="q-text">Briefly explain the three modes of operation of a stepper motor: full step, half step, and microstepping.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Stepper motors operate in distinct stepping modes determined by the sequence and nature of stator winding excitation:</p>
+        <h5>1. Full-Step Mode:</h5>
+        <ul>
+          <li>The motor advances by its fundamental step angle $\beta$ per input pulse.</li>
+          <li><b>1-Phase-ON (Wave Drive):</b> Only one phase winding is energized at a time ($A \rightarrow B \rightarrow C \rightarrow D$). Low power consumption, but lower holding torque.</li>
+          <li><b>2-Phase-ON:</b> Two adjacent phase windings are energized simultaneously ($AB \rightarrow BC \rightarrow CD \rightarrow DA$). Produces $\approx 41\%$ higher holding torque.</li>
+        </ul>
+        <h5>2. Half-Step Mode:</h5>
+        <ul>
+          <li>Excitation alternates between 1-phase-on and 2-phase-on in sequence: $A \rightarrow AB \rightarrow B \rightarrow BC \rightarrow C \dots$</li>
+          <li>The step angle is halved: $\beta_{\text{half}} = \frac{\beta}{2}$.</li>
+          <li>Doubles the angular resolution and significantly suppresses mechanical ringing and resonance.</li>
+        </ul>
+        <h5>3. Microstepping Mode:</h5>
+        <ul>
+          <li>Phase currents are continuously varied in fine sinusoidal and cosinusoidal steps using PWM H-bridge drivers instead of sharp on/off switching.</li>
+          <li>The resultant stator magnetic field rotates smoothly in small fractions ($1/4, 1/8, 1/16, \dots 1/256$ of a full step).</li>
+          <li>Completely eliminates low-speed stepping vibrations, eliminates acoustic noise, and provides ultra-high positioning accuracy.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A3 – Phasor diagram of Synchronous Reluctance Motor -->
+<div class="q-card important" id="qa3">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A3</div>
+    <div class="q-meta">
+      <div class="q-text">Draw and explain the phasor diagram of a Synchronous Reluctance Motor (SynRM).</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Synchronous Reluctance Motor (SynRM): An AC synchronous motor running on the principle of magnetic saliency (Ld > Lq) without permanent magnets or rotor windings.">Synchronous Reluctance Motor (SynRM)</span> develops torque through rotor magnetic saliency ($L_d > L_q$) when driven by balanced polyphase AC.</p>
+        <h5>Phasor Diagram Analysis:</h5>
+        <ul>
+          <li><b>Reference Axes:</b> The direct axis ($d$-axis) aligns with the rotor's minimum reluctance path, and the quadrature axis ($q$-axis) is located at $90^\circ$ electrical along the maximum reluctance path.</li>
+          <li><b>Current Decomposition:</b> Stator current phasor $\bar{I}_s$ is positioned at an internal current angle $\beta$ relative to the $d$-axis:
+            $$I_d = I_s \cos\beta, \quad I_q = I_s \sin\beta$$
+          </li>
+          <li><b>Voltage Equations:</b>
+            <div class="eq-block">
+              $$V_d = I_d R_s - I_q X_q$$
+              $$V_q = I_q R_s + I_d X_d$$
+              $$\bar{V}_s = \bar{I}_s R_s + j I_d X_d + j I_q X_q$$
+            </div>
+          </li>
+          <li><b>Developed Torque:</b>
+            <div class="eq-block">
+              $$T_e = \frac{3}{2} P (L_d - L_q) I_d I_q = \frac{3}{4} P (L_d - L_q) I_s^2 \sin(2\beta)$$
+            </div>
+          </li>
+        </ul>
+        <p>A high saliency ratio ($L_d / L_q > 4$) is critical to minimize the power angle $\delta$, improve power factor, and maximize torque density.</p>
+        
+        <div class="diagram">
+          <div class="img-name">synrm_phasor_diagram.png</div>
+          <p>Upload: SynRM phasor diagram showing V, I_s, d-axis, q-axis, δ (torque angle), β (current angle), X_d·i_d and X_q·i_q drops</p>
+          <img src="images/synrm_phasor_diagram.png" alt="SynRM phasor diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A4 – Noise mitigation in SRM (cross-reference + brief answer) -->
+<div class="q-card" id="qa4">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A4</div>
+    <div class="q-meta">
+      <div class="q-text">List any two causes of noise in a Switched Reluctance Motor (SRM) and state the methods to mitigate them.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Acoustic noise and mechanical vibration are primary operational challenges in a <span class="tech-term" data-def="SRM Noise: Caused mainly by the sudden collapse of radial magnetic pull between opposing poles and torque pulsation.">Switched Reluctance Motor (SRM)</span> due to its doubly-salient structure and discrete phase pulsing.</p>
+        <h5>Two Major Causes of Noise &amp; Their Mitigation:</h5>
+        <ol>
+          <li><b>Cause 1: Sudden Collapse of Radial Magnetic Pull:</b>
+            <ul>
+              <li><i>Mechanism:</i> Strong radial magnetic attractive forces pull opposing stator poles inward during conduction. When the phase current is abruptly switched off at commutation, this radial force collapses to zero, causing the stator frame to spring back and oscillate violently, radiating loud acoustic noise.</li>
+              <li><i>Mitigation:</i> Use <b>two-step demagnetization (soft commutation)</b> to decay current gradually, or increase the radial thickness of the stator back-iron to raise the frame's mechanical resonant frequency.</li>
+            </ul>
+          </li>
+          <li><b>Cause 2: Torque Ripple &amp; Torsional Vibration:</b>
+            <ul>
+              <li><i>Mechanism:</i> Discontinuous phase excitation and non-linear magnetic saturation lead to pulsating output torque, inducing torsional oscillations along the drive shaft.</li>
+              <li><i>Mitigation:</i> Implement advanced current profiling using <b>Torque Sharing Functions (TSF)</b> that smoothly overlap incoming and outgoing phase currents to maintain constant total shaft torque.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A5 – Classification of Linear Motors -->
+<div class="q-card important" id="qa5">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A5</div>
+    <div class="q-meta">
+      <div class="q-text">Classify linear motors. Give one example application for each type.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Linear Motor: An electric machine that generates direct translational (linear) motion without requiring rotary-to-linear mechanical converters.">linear motor</span> produces direct linear thrust through electromagnetic interaction, eliminating rotary-to-linear conversion hardware.</p>
+        <h5>Classification &amp; Example Applications:</h5>
+        <ol>
+          <li><b>Linear Induction Motor (LIM):</b>
+            <ul>
+              <li><i>Principle:</i> Polyphase AC primary creates a linear traveling magnetic field, inducing currents in a conductive secondary reaction plate (copper/aluminum on steel).</li>
+              <li><i>Application:</i> Automated urban rapid transit trains (e.g., Vancouver SkyTrain) and automated baggage handling conveyors.</li>
+            </ul>
+          </li>
+          <li><b>Linear Synchronous Motor (LSM):</b>
+            <ul>
+              <li><i>Principle:</i> 3-phase AC guideway primary produces a traveling magnetic field that locks synchronously with vehicle-mounted permanent magnets or superconducting electromagnets.</li>
+              <li><i>Application:</i> High-speed magnetic levitation (Maglev) trains (e.g., Shanghai Maglev) and aircraft carrier catapult launchers.</li>
+            </ul>
+          </li>
+          <li><b>Linear DC Motor (LDM):</b>
+            <ul>
+              <li><i>Principle:</i> Stationary permanent magnet track interacting with a moving armature coil fed with DC via brushes or flexible leads.</li>
+              <li><i>Application:</i> Precision read/write head positioning in computer disk drives and semiconductor wafer stages.</li>
+            </ul>
+          </li>
+          <li><b>Linear Stepper Motor:</b>
+            <ul>
+              <li><i>Principle:</i> Linear toothed track and mover operating on variable reluctance or hybrid stepping principles for discrete positional increments.</li>
+              <li><i>Application:</i> High-precision X-Y plotting tables and automated pick-and-place component mounters.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A6 – Advantages of LIM over rotary motors -->
+<div class="q-card important" id="qa6">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A6</div>
+    <div class="q-meta">
+      <div class="q-text">State the advantages of a Linear Induction Motor (LIM) over conventional rotary motors.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Linear Induction Motor (LIM): A motor that converts polyphase AC electrical power directly into linear mechanical motion without rotating parts.">Linear Induction Motor (LIM)</span> provides major operational and mechanical benefits over conventional rotary motors coupled to mechanical converters (rack-and-pinions or ball screws):</p>
+        <h5>Key Advantages:</h5>
+        <ol>
+          <li><b>Direct Linear Thrust (Zero Mechanical Conversion Loss):</b> Eliminates rotary-to-linear mechanical hardware (gears, couplings, lead screws, and belts), completely eliminating mechanical backlash, elastic compliance, and transmission friction.</li>
+          <li><b>High Linear Speed &amp; Acceleration:</b> Velocity is governed by linear synchronous speed $v_s = 2\tau f$ and is not restricted by centrifugal forces or wheel-rail adhesion limits, allowing speeds exceeding $400\text{ km/h}$.</li>
+          <li><b>Low Maintenance &amp; High Reliability:</b> Contactless electromagnetic force generation across the air gap eliminates sliding mechanical contact, mechanical wear, and routine lubrication requirements.</li>
+          <li><b>Immunity to Wheel Slippage / Independent of Adhesion:</b> Thrust is generated electromagnetically in the air gap, enabling trains to climb steep gradients ($> 6\%$) and brake reliably under wet or icy track conditions.</li>
+          <li><b>Inexpensive Track Construction:</b> The stationary secondary track consists of simple aluminum sheets backed by solid mild steel, making long transportation guideways highly cost-effective.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A7 – Modifications in DC series motor for AC operation -->
+<div class="q-card important" id="qa7">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A7</div>
+    <div class="q-meta">
+      <div class="q-text">What modifications are necessary in a DC series motor to operate it on AC supply? Explain briefly.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Operating an unmodified DC series motor directly on single-phase AC results in severe core overheating, unacceptable brush sparking, and an extremely poor power factor.</p>
+        <h5>Required Modifications:</h5>
+        <ol>
+          <li><b>Complete Lamination of Stator Yoke and Field Poles:</b> The entire stator core and pole shoes must be assembled from thin, insulated silicon-steel laminations to suppress large eddy-current losses produced by the alternating field flux.</li>
+          <li><b>Reduction of Field Winding Turns:</b> Field turns are kept low to minimize field inductive reactance ($X_f = 2\pi f L_f$). This significantly reduces total internal reactance drop and raises the operating power factor ($\cos\phi$).</li>
+          <li><b>Use of a Very Small Air Gap:</b> Since field turns are reduced, the air gap is made as narrow as mechanically possible to maintain high air-gap flux density with fewer ampere-turns.</li>
+          <li><b>Addition of Compensating Windings:</b> Placed in pole-face slots to neutralize armature cross-magnetizing reactance ($X_a$), keeping the net machine reactance low and preventing commutation sparking.</li>
+          <li><b>High-Resistance Carbon Brushes &amp; Commutator Leads:</b> High-contact-resistance brushes and resistive connecting leads are used to limit large circulating short-circuit currents induced by transformer action in coils undergoing brush commutation.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_A8 – Compare torque-speed: single-phase IM vs hysteresis motor -->
+<div class="q-card important" id="qa8">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">A8</div>
+    <div class="q-meta">
+      <div class="q-text">Compare the torque-speed characteristics of a single-phase induction motor with those of a hysteresis motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A comparison of the torque-speed characteristics of a single-phase induction motor and a hysteresis motor illustrates fundamental differences in torque generation and speed regulation:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Comparison Parameter</th>
+              <th>Single-Phase Induction Motor</th>
+              <th>Hysteresis Motor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Starting Torque</b></td>
+              <td>Zero inherently; moderate starting torque achieved using auxiliary winding and capacitor ($T_{\text{st}} \propto V^2$).</td>
+              <td>High starting torque equal to full-load running torque ($T_{\text{st}} \approx T_{\text{fl}}$) from standstill to $N_s$.</td>
+            </tr>
+            <tr>
+              <td><b>Running Speed</b></td>
+              <td>Sub-synchronous speed ($N < N_s$); speed decreases with increasing mechanical load due to slip $s$.</td>
+              <td>Runs at strictly constant synchronous speed ($N = N_s$) independent of load variations up to pull-out torque.</td>
+            </tr>
+            <tr>
+              <td><b>Torque-Speed Profile</b></td>
+              <td>Non-linear curve; rises to a maximum breakdown torque and drops sharply to zero at synchronous speed $N_s$.</td>
+              <td>Perfectly flat, horizontal straight-line characteristic ($T = \text{constant}$) from standstill to synchronous speed.</td>
+            </tr>
+            <tr>
+              <td><b>Pull-In Transition</b></td>
+              <td>Cannot pull into synchronous speed; operates strictly on induction slip.</td>
+              <td>Accelerates smoothly on hysteresis torque and locks into synchronism purely by magnetic retentivity.</td>
+            </tr>
+            <tr>
+              <td><b>Acoustic Noise &amp; Vibration</b></td>
+              <td>Produces noticeable magnetic hum and vibration due to double-frequency pulsating torque.</td>
+              <td>Completely silent and vibrationless due to smooth, unslotted cylindrical rotor geometry.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="diagram">
+          <div class="img-name">im_vs_hysteresis_torque_speed.png</div>
+          <p>Upload: Overlay plot — single-phase IM S-curve vs flat hysteresis torque line, both up to N_s, showing synchronisation of hysteresis motor</p>
+          <img src="images/im_vs_hysteresis_torque_speed.png" alt="IM vs Hysteresis motor torque speed comparison" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /parta -->
+
+
+<!-- ═══════════════════════════════════════════
+     MODULE I – BLDC & PMSM
+════════════════════════════════════════════ -->
+<div id="mod1">
+<div class="module-header">
+  <div class="num">I</div>
+  <div>
+    <h2>Module I — BLDC Motor &amp; Permanent Magnet Synchronous Motor</h2>
+    <p>BLDC construction, commutation, control · PMSM principle, self-control scheme, sensor-less control</p>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-card important" id="q11">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">11</div>
+    <div class="q-meta">
+      <div class="q-text">With a neat sketch, explain the principle of operation of a permanent-magnet Brushless DC motor with 180° commutation. (2026 — 14 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Full Page Answer (14 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="BLDC Motor: A permanent magnet synchronous motor driven by DC supply via a solid-state inverter. Stator has 3-phase windings, rotor has permanent magnets. Electronic commutation replaces mechanical commutator.">Permanent Magnet Brushless DC (BLDC) motor</span> operates through electronic commutation provided by a three-phase voltage source inverter (VSI) synchronized with rotor position signals detected by Hall-effect sensors.</p>
+        
+        <div class="diagram">
+          <div class="img-name">bldc_180_commutation.png</div>
+          <p>Upload: BLDC motor cross-section + inverter circuit + commutation waveforms for 180° drive</p>
+          <img src="images/bldc_180_commutation.png" alt="BLDC 180 degree commutation" onload="this.classList.add('loaded')">
+        </div>
+
+        <h5>1. Motor Construction &amp; Inverter Configuration:</h5>
+        <ul>
+          <li><b>Stator:</b> Houses a balanced 3-phase star-connected winding ($A, B, C$) designed to produce trapezoidal back-EMF waveforms with $120^\circ$ flat tops.</li>
+          <li><b>Rotor:</b> Carries surface-mounted high-energy permanent magnets ($	ext{NdFeB}$ or $	ext{SmCo}$) forming $2P$ poles.</li>
+          <li><b>Position Sensors:</b> Three Hall-effect sensors ($H_1, H_2, H_3$) mounted at $120^\circ$ electrical intervals along the stator detect the rotor magnetic poles.</li>
+          <li><b>Inverter Circuit:</b> A 3-phase six-switch inverter:
+            <ul>
+              <li>Upper switches: $S_1, S_3, S_5$ (connected to positive DC rail $+V_{dc}$).</li>
+              <li>Lower switches: $S_2, S_4, S_6$ (connected to negative DC rail $-V_{dc}$).</li>
+              <li>Antiparallel freewheeling diodes ($D_1$ to $D_6$) provide paths for inductive phase current decay.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h5>2. Principle of $180^\circ$ Commutation Mode:</h5>
+        <p>In $180^\circ$ conduction mode, each power electronic switch is turned ON for an electrical interval of $180^\circ$. At any given instant, exactly <b>three switches are conducting</b> simultaneously (either two upper and one lower switch, or one upper and two lower switches). The $360^\circ$ electrical cycle is divided into six distinct $60^\circ$ sectors:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th>Interval</th>
+              <th>Active Switches (3 ON)</th>
+              <th>Conducting Phases</th>
+              <th>Hall State ($H_1 H_2 H_3$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>1</b></td>
+              <td>$0^\circ - 60^\circ$</td>
+              <td>$S_1, S_6, S_5$</td>
+              <td>Phases A &amp; C to $+V_{dc}$, Phase B to $-V_{dc}$</td>
+              <td>1 0 1</td>
+            </tr>
+            <tr>
+              <td><b>2</b></td>
+              <td>$60^\circ - 120^\circ$</td>
+              <td>$S_1, S_2, S_3$</td>
+              <td>Phase A to $+V_{dc}$, Phases B &amp; C to $-V_{dc}$</td>
+              <td>1 0 0</td>
+            </tr>
+            <tr>
+              <td><b>3</b></td>
+              <td>$120^\circ - 180^\circ$</td>
+              <td>$S_3, S_2, S_5$</td>
+              <td>Phases B &amp; C to $+V_{dc}$, Phase A to $-V_{dc}$</td>
+              <td>1 1 0</td>
+            </tr>
+            <tr>
+              <td><b>4</b></td>
+              <td>$180^\circ - 240^\circ$</td>
+              <td>$S_3, S_4, S_5$</td>
+              <td>Phase B to $+V_{dc}$, Phases A &amp; C to $-V_{dc}$</td>
+              <td>0 1 0</td>
+            </tr>
+            <tr>
+              <td><b>5</b></td>
+              <td>$240^\circ - 300^\circ$</td>
+              <td>$S_5, S_4, S_1$</td>
+              <td>Phases C &amp; A to $+V_{dc}$, Phase B to $-V_{dc}$</td>
+              <td>0 1 1</td>
+            </tr>
+            <tr>
+              <td><b>6</b></td>
+              <td>$300^\circ - 360^\circ$</td>
+              <td>$S_5, S_6, S_1$</td>
+              <td>Phase C to $+V_{dc}$, Phases A &amp; B to $-V_{dc}$</td>
+              <td>0 0 1</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h5>3. Electromagnetic Torque Generation:</h5>
+        <ol>
+          <li><b>Stator MMF Vector:</b> The simultaneous conduction of three phases establishes a resultant stator magnetic field vector $\vec{B}_s$ that advances in discrete $60^\circ$ electrical steps around the air gap.</li>
+          <li><b>Magnetic Interaction:</b> The rotor permanent magnet field $\vec{B}_r$ attempts to align with the stator field, generating electromagnetic alignment torque:
+            $$\vec{T}_e = \vec{B}_r \times \vec{B}_s \implies T_e = k B_r B_s \sin\delta$$
+            Where $\delta$ is the torque angle maintained close to $90^\circ$ through continuous Hall sensor commutation.</li>
+          <li><b>Total Output Power and Torque Expression:</b>
+            <div class="eq-block">
+              $$P_e = e_a i_a + e_b i_b + e_c i_c = T_e \cdot \omega_m$$
+              $$T_e = \frac{e_a i_a + e_b i_b + e_c i_c}{\omega_m}$$
+            </div>
+            With ideal trapezoidal flat-top back-EMF ($E$) and current magnitude ($I$), torque is smooth and ripple-free:
+            $$T_e = 2 K_t I$$
+          </li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">bldc_hall_sensor_sequence.png</div>
+          <p>Upload: Hall sensor output, phase current waveforms and switching table</p>
+          <img src="images/bldc_hall_sensor_sequence.png" alt="BLDC Hall sensor and commutation sequence" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-card important" id="q12">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">12a</div>
+    <div class="q-meta">
+      <div class="q-text">With a neat block diagram explain the sensor-less control scheme of permanent magnet synchronous motor (PMSM).</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>In <span class="tech-term" data-def="Sensor-less Control: Eliminates mechanical shaft encoders or resolvers by estimating rotor position and angular velocity mathematically from motor terminal voltages and currents.">sensor-less control</span> of a Permanent Magnet Synchronous Motor (PMSM), physical shaft position encoders or resolvers are eliminated. Rotor position ($\hat{\theta}_r$) and angular velocity ($\hat{\omega}_r$) are extracted in real time from measured stator voltages and currents.</p>
+
+        <h5>1. Back-EMF Based Rotor Position Estimation:</h5>
+        <p>In the stationary two-phase $\alpha-\beta$ reference frame, the stator voltage equations of a surface PMSM are:</p>
+        <div class="eq-block">
+          $$v_\alpha = R_s i_\alpha + L_s \frac{di_\alpha}{dt} + e_\alpha$$
+          $$v_\beta = R_s i_\beta + L_s \frac{di_\beta}{dt} + e_\beta$$
+        </div>
+        <p>Where the back-EMF components induced by the permanent magnet flux linkage $\psi_{pm}$ are:</p>
+        <div class="eq-block">
+          $$e_\alpha = -\omega_e \psi_{pm} \sin\theta_r, \qquad e_\beta = \omega_e \psi_{pm} \cos\theta_r$$
+        </div>
+        <p>Estimated rotor position angle is extracted through arctangent demodulation:</p>
+        <div class="eq-block">
+          $$\hat{\theta}_r = \arctan\left(-\frac{e_\alpha}{e_\beta}\right)$$
+        </div>
+
+        <h5>2. Sensorless Control Block Diagram Structure:</h5>
+        <ol>
+          <li><b>Outer Speed Control Loop:</b> Reference speed $\omega^*$ is compared with estimated rotor speed $\hat{\omega}_r$. The speed error is processed by a <b>PI Speed Controller</b> to produce the quadrature-axis reference torque current ($i_q^*$).</li>
+          <li><b>Direct-Axis Reference Current:</b> For surface PMSM, $i_d^* = 0$ to achieve Maximum Torque Per Ampere (MTPA).</li>
+          <li><b>Inner Current Loops:</b> Clarke transform converts measured phase currents ($i_a, i_b, i_c$) into ($i_\alpha, i_\beta$). Park transformation using estimated angle $\hat{\theta}_r$ converts them into rotating $d-q$ currents ($i_d, i_q$). PI controllers generate voltage references ($v_d^*, v_q^*$).</li>
+          <li><b>Observer / Estimator Block:</b> A <b>Sliding Mode Observer (SMO)</b> or <b>Extended Kalman Filter (EKF)</b> estimates back-EMF, filtering out inverter switching harmonics and outputting robust values of $\hat{\theta}_r$ and $\hat{\omega}_r$.</li>
+          <li><b>Inverter Modulation:</b> Inverse Park transform converts ($v_d^*, v_q^*$) back to ($v_\alpha^*, v_\beta^*$), which are synthesized by <b>Space Vector PWM (SVPWM)</b> driving the inverter switches.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">pmsm_sensorless_block.png</div>
+          <p>Upload: Complete block diagram of PMSM sensor-less FOC control</p>
+          <img src="images/pmsm_sensorless_block.png" alt="PMSM sensorless control block diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q12b -->
+<div class="q-card important" id="q12b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">12b</div>
+    <div class="q-meta">
+      <div class="q-text">With neat sketches, explain the construction and working of a permanent magnet synchronous motor (PMSM).</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="PMSM (Permanent Magnet Synchronous Motor): A 3-phase AC synchronous machine with sinusoidal back-EMF, excited by permanent magnets on the rotor.">Permanent Magnet Synchronous Motor (PMSM)</span> is a polyphase AC synchronous machine that combines the sinusoidal field distribution of conventional synchronous motors with high-coercivity permanent magnet rotor excitation.</p>
+
+        <h5>1. Constructional Details:</h5>
+        <ul>
+          <li><b>Stator:</b> Built from thin, insulated silicon-steel laminations with open or semi-closed slots housing a standard balanced 3-phase distributed AC winding (spaced $120^\circ$ electrical apart). The winding is configured to produce a sinusoidal rotating air-gap MMF wave.</li>
+          <li><b>Rotor:</b> Constructed with high-energy permanent magnets ($	ext{NdFeB}$ or $	ext{SmCo}$) to establish excitation flux without rotor field windings or slip rings. Classified into two primary configurations:
+            <ul>
+              <li><b>Surface Permanent Magnet (SPM) Rotor:</b> Arc-shaped permanent magnet tiles are bonded onto the outer cylindrical surface of the rotor iron core. The magnetic permeability of magnets is close to that of air ($\mu_r \approx 1$), resulting in a uniform effective air gap ($L_d \approx L_q$).</li>
+              <li><b>Interior Permanent Magnet (IPM) Rotor:</b> Rectangular permanent magnet blocks are buried deep inside cavities within the rotor laminations. This structure provides high mechanical robustness for high-speed operation and exhibits significant magnetic saliency ($L_q > L_d$), producing reluctance torque in addition to magnetic torque.</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">pmsm_construction.png</div>
+          <p>Upload: PMSM cross-section showing stator windings, rotor magnets (SPM and IPM)</p>
+          <img src="images/pmsm_construction.png" alt="PMSM construction" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Principle of Operation &amp; Torque Production:</h5>
+        <ol>
+          <li><b>Generation of Rotating Magnetic Field (RMF):</b> Feeding balanced 3-phase AC voltages into the stator produces a sinusoidal air-gap magnetic field rotating at synchronous speed:
+            $$N_s = \frac{120 f}{P} \quad (\text{rpm})$$
+          </li>
+          <li><b>Synchronous Locking:</b> The rotor's permanent magnet poles lock magnetically with the rotating stator poles across the air gap. The rotor rotates in synchronism with the stator field ($N = N_s$) under steady state without slip.</li>
+          <li><b>Electromagnetic Torque Expression:</b> Under the rotor $d-q$ synchronous reference frame, developed torque is:
+            <div class="eq-block">
+              $$T_e = \frac{3}{2} P \left[ \psi_{pm} i_q + (L_d - L_q) i_d i_q \right]$$
+            </div>
+            <ul>
+              <li><b>Synchronous Reaction Torque:</b> $\frac{3}{2} P \psi_{pm} i_q$ produced by the interaction of PM flux $\psi_{pm}$ and quadrature current $i_q$.</li>
+              <li><b>Reluctance Torque:</b> $\frac{3}{2} P (L_d - L_q) i_d i_q$ arising from magnetic saliency (present in IPM where $L_q > L_d$ with negative direct-axis current $i_d$).</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /mod1 -->
+
+<!-- Q12c NEW – PMSM Self-Control Scheme -->
+<div class="q-card important" id="q12c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">12c</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the self-control scheme of a Permanent Magnet Synchronous Motor (PMSM). How does it differ from open-loop V/f control?</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Syllabus Core</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (7 Marks)</h4>
+      <div class="answer-text">
+<p>In a <span class="tech-term" data-def="Self-Control Scheme: A closed-loop control strategy where inverter switching frequency is directly locked to rotor position feedback, guaranteeing that the stator field always rotates at rotor speed, preventing loss of synchronism.">self-controlled PMSM drive</span> (also known as an electronically commutated synchronous drive), the inverter switching frequency is not determined by an independent external oscillator; instead, it is derived directly from the actual rotor position sensor.</p>
+
+        <h5>1. Working Principle of Self-Control:</h5>
+        <ol>
+          <li><b>Rotor Position Tracking:</b> A high-resolution shaft position sensor (absolute optical encoder or resolver) continuously monitors rotor mechanical angle $\theta_r$.</li>
+          <li><b>Frequency Locking:</b> The sensor output directly triggers the inverter gating signals. Consequently, the stator frequency automatically tracks rotor velocity:
+            $$\omega_{\text{stator}} = \omega_r$$
+            The stator rotating field and rotor magnetic field are permanently synchronized, making it impossible for the motor to pull out of step or lose synchronism during sudden load transients.</li>
+          <li><b>Torque Angle Regulation:</b> By adding a controlled phase advance angle $\delta$ to the detected position ($\theta_{\text{firing}} = \theta_r + \delta$), the torque angle is maintained at its optimal value ($90^\circ$ electrical) for maximum torque per ampere.</li>
+        </ol>
+
+        <h5>2. Comparison: Self-Control Scheme vs Open-Loop V/f Control:</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Comparison Parameter</th>
+              <th>Self-Control Scheme</th>
+              <th>Open-Loop V/f Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Frequency Generation</b></td>
+              <td>Inverter frequency is locked to real-time rotor position feedback ($\omega_s = \omega_r$).</td>
+              <td>Inverter frequency is set independently by an external reference oscillator.</td>
+            </tr>
+            <tr>
+              <td><b>Synchronism &amp; Stability</b></td>
+              <td>Never loses synchronism; completely immune to pulling out of step under sudden shock loads.</td>
+              <td>Susceptible to loss of synchronism and stalling if load exceeds breakdown torque.</td>
+            </tr>
+            <tr>
+              <td><b>Hunting &amp; Oscillation</b></td>
+              <td>No rotor hunting or sustained speed oscillation during load changes.</td>
+              <td>Severe rotor hunting and low-frequency oscillations can occur during speed transitions.</td>
+            </tr>
+            <tr>
+              <td><b>Dynamic Response</b></td>
+              <td>Extremely fast dynamic acceleration and deceleration; suitable for high-performance servo applications.</td>
+              <td>Sluggish dynamic response; frequency acceleration must be ramped slowly to maintain sync.</td>
+            </tr>
+            <tr>
+              <td><b>System Complexity &amp; Cost</b></td>
+              <td>Requires position sensor, feedback interface, and sophisticated signal processing.</td>
+              <td>Simple and economical; no position sensors or feedback circuitry needed.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="diagram">
+          <div class="img-name">pmsm_self_control_block.png</div>
+          <p>Upload: PMSM self-control block diagram — encoder → position decoder → firing pulse generator → inverter → PMSM → current feedback</p>
+          <img src="images/pmsm_self_control_block.png" alt="PMSM self-control block diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     MODULE II – STEPPER MOTORS
+════════════════════════════════════════════ -->
+<div id="mod2">
+<div class="module-header">
+  <div class="num">II</div>
+  <div>
+    <h2>Module II — Stepper Motors</h2>
+    <p>VR stepper, PM stepper, Hybrid stepper · Modes of operation · Static &amp; Dynamic characteristics</p>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-card important" id="q13">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">13</div>
+    <div class="q-meta">
+      <div class="q-text">With neat sketches and truth tables, explain the different modes of operation of a four-phase six-pole single-stack variable reluctance stepper motor. (2026 — 14 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module II</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Full Page Answer (14 Marks)</h4>
+      <div class="answer-text">
+<p>A four-phase, 8/6 single-stack <span class="tech-term" data-def="Variable Reluctance Stepper Motor: A stepper motor having salient stator poles and a salient soft-iron rotor without permanent magnets. Torque is produced by the rotor minimizing reluctance.">Variable Reluctance (VR) stepper motor</span> operates purely on the variable reluctance principle: the rotor moves to align its teeth with energized stator poles to minimize magnetic circuit reluctance.</p>
+
+        <h5>1. Motor Specifications &amp; Step Angle Calculation:</h5>
+        <ul>
+          <li>Number of stator salient poles: $N_s = 8$ (arranged as 4 phases: $A, B, C, D$ with opposite poles wired in series).</li>
+          <li>Number of rotor salient teeth: $N_r = 6$ (soft-iron laminations, no windings or PMs).</li>
+          <li>Step Angle Derivation:
+            <div class="eq-block">
+              $$\beta = \frac{|N_s - N_r|}{N_s \cdot N_r} \times 360^\circ = \frac{|8 - 6|}{8 \times 6} \times 360^\circ = \frac{2}{48} \times 360^\circ = 15^\circ$$
+            </div>
+          </li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">vr_stepper_modes.png</div>
+          <p>Upload: 4-phase VR stepper cross-section showing rotor positions for each mode + switching table diagram</p>
+          <img src="images/vr_stepper_modes.png" alt="VR stepper motor modes" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Modes of Operation &amp; Truth Tables:</h5>
+
+        <h5>Mode A: 1-Phase-ON Mode (Single-Phase Excitation / Wave Drive)</h5>
+        <p>Only one phase winding is energized at a time. The rotor moves $15^\circ$ per step to bring its nearest teeth into direct coaxial alignment with the excited stator poles. Step angle = $15^\circ$.</p>
+        <table>
+          <thead>
+            <tr><th>Step</th><th>Phase A</th><th>Phase B</th><th>Phase C</th><th>Phase D</th><th>Rotor Position</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>$0^\circ$</td></tr>
+            <tr><td>2</td><td>0</td><td>1</td><td>0</td><td>0</td><td>$15^\circ$</td></tr>
+            <tr><td>3</td><td>0</td><td>0</td><td>1</td><td>0</td><td>$30^\circ$</td></tr>
+            <tr><td>4</td><td>0</td><td>0</td><td>0</td><td>1</td><td>$45^\circ$</td></tr>
+            <tr><td>5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>$60^\circ$</td></tr>
+          </tbody>
+        </table>
+
+        <h5>Mode B: 2-Phase-ON Mode (Two-Phase Excitation)</h5>
+        <p>Two adjacent phases are energized simultaneously. The rotor aligns at an intermediate equilibrium position midway between the two excited stator poles. Delivers $\approx 41\%$ higher holding torque. Step angle = $15^\circ$.</p>
+        <table>
+          <thead>
+            <tr><th>Step</th><th>Phase A</th><th>Phase B</th><th>Phase C</th><th>Phase D</th><th>Rotor Position</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>$7.5^\circ$</td></tr>
+            <tr><td>2</td><td>0</td><td>1</td><td>1</td><td>0</td><td>$22.5^\circ$</td></tr>
+            <tr><td>3</td><td>0</td><td>0</td><td>1</td><td>1</td><td>$37.5^\circ$</td></tr>
+            <tr><td>4</td><td>1</td><td>0</td><td>0</td><td>1</td><td>$52.5^\circ$</td></tr>
+            <tr><td>5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>$67.5^\circ$</td></tr>
+          </tbody>
+        </table>
+
+        <h5>Mode C: Half-Step Mode (Alternate 1-Phase and 2-Phase Excitation)</h5>
+        <p>Alternates between 1-phase-on and 2-phase-on modes ($A \rightarrow AB \rightarrow B \rightarrow BC \dots$). Step angle is halved to $\beta_{\text{half}} = 7.5^\circ$. Doubles positional resolution and eliminates mechanical resonance.</p>
+        <table>
+          <thead>
+            <tr><th>Step</th><th>Phase A</th><th>Phase B</th><th>Phase C</th><th>Phase D</th><th>Rotor Position</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>$0^\circ$</td></tr>
+            <tr><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>$7.5^\circ$</td></tr>
+            <tr><td>3</td><td>0</td><td>1</td><td>0</td><td>0</td><td>$15^\circ$</td></tr>
+            <tr><td>4</td><td>0</td><td>1</td><td>1</td><td>0</td><td>$22.5^\circ$</td></tr>
+            <tr><td>5</td><td>0</td><td>0</td><td>1</td><td>0</td><td>$30^\circ$</td></tr>
+            <tr><td>6</td><td>0</td><td>0</td><td>1</td><td>1</td><td>$37.5^\circ$</td></tr>
+            <tr><td>7</td><td>0</td><td>0</td><td>0</td><td>1</td><td>$45^\circ$</td></tr>
+            <tr><td>8</td><td>1</td><td>0</td><td>0</td><td>1</td><td>$52.5^\circ$</td></tr>
+          </tbody>
+        </table>
+        <p><b>Direction Reversal:</b> Reversing the phase excitation sequence (e.g., $D \rightarrow C \rightarrow B \rightarrow A$) reverses the direction of rotation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-card important" id="q14">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">14</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the construction and working of a Hybrid Stepper Motor. Also explain microstepping. (2025 — 14 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module II</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Full Page Answer (14 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Hybrid Stepper Motor: Combines the variable reluctance principle with permanent magnet excitation. Features small step angles (typically 1.8°), high holding torque, and detent torque.">Hybrid Stepper Motor</span> integrates the operating principles of Variable Reluctance (VR) and Permanent Magnet (PM) stepper motors, achieving small step angles (typically $1.8^\circ$) and high holding torque.</p>
+
+        <h5>1. Constructional Details:</h5>
+        <ul>
+          <li><b>Stator:</b> Laminated silicon-steel core with 8 main salient poles. The inner pole faces are machined with fine teeth (typically 5 to 6 teeth per pole). Stator accommodates two-phase or four-phase windings.</li>
+          <li><b>Rotor Assembly:</b> Consists of a cylindrical permanent magnet magnetized axially (North on one face, South on the other) sandwiched between two laminated soft-iron toothed cups (end-caps):
+            <ul>
+              <li><b>Front Cup:</b> Polarized as an all-North pole cap with 50 uniformly spaced teeth along its periphery.</li>
+              <li><b>Rear Cup:</b> Polarized as an all-South pole cap with 50 uniformly spaced teeth along its periphery.</li>
+              <li><b>Tooth Offset:</b> The teeth of the South cup are displaced angularly by exactly <b>half a tooth pitch ($1.8^\circ$)</b> relative to the teeth of the North cup.</li>
+            </ul>
+          </li>
+          <li><b>Step Angle:</b> Rotor tooth pitch $\tau_r = \frac{360^\circ}{50} = 7.2^\circ$. For a 4-phase winding ($m=4$):
+            <div class="eq-block">
+              $$\beta = \frac{360^\circ}{2 \cdot m \cdot N_r} = \frac{360^\circ}{2 \times 4 \times 50} = 1.8^\circ$$
+            </div>
+          </li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">hybrid_stepper_construction.png</div>
+          <p>Upload: Hybrid stepper motor exploded view — stator, front cup, PM, rear cup, teeth offset</p>
+          <img src="images/hybrid_stepper_construction.png" alt="Hybrid stepper motor construction" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Principle of Operation:</h5>
+        <ol>
+          <li>When Phase A is energized, its stator poles become South poles, attracting the North teeth of the front rotor cup into direct radial alignment. Simultaneously, the South teeth of the rear cup align with North stator poles.</li>
+          <li>Due to the $1.8^\circ$ offset between North and South cups, the teeth of unexcited Phase B are misaligned by one-quarter of a tooth pitch ($1.8^\circ$).</li>
+          <li>De-energizing Phase A and energizing Phase B pulls the misaligned teeth into alignment, stepping the rotor by precisely $1.8^\circ$.</li>
+        </ol>
+
+        <h5>3. Microstepping:</h5>
+        <ul>
+          <li><b>Concept:</b> Microstepping is an electronic driving technique where stator phase currents are modulated continuously in small sinusoidal increments using high-frequency PWM H-bridges instead of discrete ON/OFF switching.</li>
+          <li><b>Current Proportions:</b> For a 2-phase motor:
+            <div class="eq-block">
+              $$i_A = I_{\max} \cos\theta, \qquad i_B = I_{\max} \sin\theta$$
+            </div>
+            By dividing each quarter-cycle of the sine wave into $N$ discrete levels, each standard step ($1.8^\circ$) is divided into $N$ microsteps:
+            $$\beta_{\text{micro}} = \frac{\beta}{N} \quad (N = 4, 8, 16, 32, \dots 256)$$
+          </li>
+          <li><b>Advantages:</b>
+            <ol>
+              <li>Ultra-high positioning resolution (up to $51,200\text{ steps/rev}$).</li>
+              <li>Completely eliminates low-speed jerkiness and torque pulsations.</li>
+              <li>Prevents mid-frequency mechanical resonance and acoustic whine.</li>
+            </ol>
+          </li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">hybrid_stepper_microstepping.png</div>
+          <p>Upload: Microstepping current waveforms (sinusoidal i_A and i_B) and resulting position steps</p>
+          <img src="images/hybrid_stepper_microstepping.png" alt="Hybrid stepper microstepping" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /mod2 -->
+
+<!-- Q14b NEW – PM Stepper Motor -->
+<div class="q-card important" id="q14b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">14b</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the construction and working of a Permanent Magnet (PM) stepper motor. Compare it with the Variable Reluctance (VR) stepper motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Syllabus Core</span>
+        <span class="tag part">Module II</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (7 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Permanent Magnet (PM) Stepper Motor: A stepper motor with a cylindrical permanent magnet rotor having alternating N and S poles. Provides detent torque and moderate step angles (7.5° to 15°).">Permanent Magnet (PM) Stepper Motor</span> produces incremental stepping by the electromagnetic interaction between a wound stator and a radially magnetized permanent magnet rotor.</p>
+
+        <h5>1. Construction &amp; Working of PM Stepper Motor:</h5>
+        <ul>
+          <li><b>Construction:</b> The stator has salient poles carrying concentrated phase windings (unifilar or bifilar). The rotor is a cylindrical permanent magnet magnetized radially with alternating North and South poles along its circumference.</li>
+          <li><b>Working Principle:</b> When a stator phase is energized with DC current, it establishes magnetic poles. The permanent magnet rotor experiences electromagnetic alignment torque and rotates to align its opposite magnetic poles with the excited stator poles ($N \leftrightarrow S$). Reversing the phase excitation sequence advances the rotor step-by-step.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">pm_stepper_construction.png</div>
+          <p>Upload: PM stepper cross-section showing smooth cylindrical PM rotor and wound stator poles</p>
+          <img src="images/pm_stepper_construction.png" alt="PM stepper motor construction" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Comparison: Permanent Magnet (PM) vs Variable Reluctance (VR) Stepper Motor:</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Comparison Feature</th>
+              <th>Permanent Magnet (PM) Stepper</th>
+              <th>Variable Reluctance (VR) Stepper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Rotor Construction</b></td>
+              <td>Cylindrical permanent magnet with alternating $N$ and $S$ poles.</td>
+              <td>Laminated soft iron with salient teeth; no permanent magnets or windings.</td>
+            </tr>
+            <tr>
+              <td><b>Detent Torque</b></td>
+              <td>Present (residual magnetic attraction keeps rotor in position when unpowered).</td>
+              <td>Zero detent torque (rotor spins freely when windings are unexcited).</td>
+            </tr>
+            <tr>
+              <td><b>Step Angle Range</b></td>
+              <td>Moderate to large step angles (typically $7.5^\circ$ to $15^\circ$).</td>
+              <td>Small to moderate step angles (typically $1.8^\circ$ to $15^\circ$).</td>
+            </tr>
+            <tr>
+              <td><b>Rotor Inertia &amp; Response</b></td>
+              <td>Higher rotor inertia due to magnet mass; moderate dynamic acceleration.</td>
+              <td>Very low rotor inertia; superior acceleration and high slewing rates.</td>
+            </tr>
+            <tr>
+              <td><b>Torque Generation Mechanism</b></td>
+              <td>Electromagnetic interaction torque ($T \propto B_r B_s \sin\delta$).</td>
+              <td>Reluctance torque ($T = \frac{1}{2} i^2 \frac{dL}{d\theta}$).</td>
+            </tr>
+            <tr>
+              <td><b>Polarity Sensitivity</b></td>
+              <td>Sensitive to excitation current polarity (requires current reversal).</td>
+              <td>Insensitive to current polarity (torque depends on $i^2$).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q14c NEW – Static Torque Characteristics of Stepper Motor -->
+<div class="q-card important" id="q14c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">14c</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the static torque characteristics (torque-displacement curve) of a stepper motor. Define detent torque, holding torque, and static position error.</div>
+      <div class="q-tags">
+        <span class="tag marks">6 Marks</span>
+        <span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Syllabus Core</span>
+        <span class="tag part">Module II</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (6 Marks)</h4>
+      <div class="answer-text">
+<p>The static characteristics of a stepper motor describe its torque-generating capability and angular displacement when one or more stator phases are energized with constant DC holding current.</p>
+
+        <h5>1. Static Torque-Displacement Curve:</h5>
+        <p>When an excited stepper motor phase holds the rotor at equilibrium and an external load torque displaces the rotor by an angle $\theta$, the motor develops a restoring electromagnetic torque given by:</p>
+        <div class="eq-block">
+          $$T = -T_h \sin(N_r \theta)$$
+        </div>
+        <p>Where $T_h$ is the holding torque and $N_r$ is the number of rotor teeth. The curve is sinusoidal; for small deflections around equilibrium, the restoring torque is linearly proportional to position displacement (torque stiffness $K_t = \frac{dT}{d\theta}$).</p>
+        
+        <div class="diagram">
+          <div class="img-name">stepper_static_torque.png</div>
+          <p>Upload: Sinusoidal torque-displacement curve showing holding torque, stable zone, detent torque (for PM/Hybrid) and static position error</p>
+          <img src="images/stepper_static_torque.png" alt="Stepper motor static torque characteristics" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Technical Definitions:</h5>
+        <ol>
+          <li><b><span class="tech-term" data-def="Holding Torque: The maximum external torque that can be applied to the shaft of an energized stepper motor without causing continuous rotation.">Holding Torque ($T_h$)</span>:</b>  
+            The maximum static torque that can be applied to the shaft of an energized stepper motor at standstill without causing it to break out of equilibrium and rotate continuously. It is the peak value of the torque-displacement curve.
+          </li>
+          <li><b><span class="tech-term" data-def="Detent Torque: The maximum torque required to rotate the unenergized motor shaft, caused by the permanent magnets interacting with the stator teeth.">Detent Torque ($T_d$)</span>:</b>  
+            The maximum torque required to rotate the motor shaft when the stator windings are completely de-energized. It is caused by the residual magnetic attraction between the rotor permanent magnets and stator teeth (present only in PM and Hybrid stepper motors; zero in VR steppers).
+          </li>
+          <li><b><span class="tech-term" data-def="Static Position Error: The angular deviation between the actual rotor position and the ideal theoretical step position under load.">Static Position Error</span>:</b>  
+            The angular deviation between the rotor's actual resting position and its theoretical zero-torque equilibrium position when subjected to an external load torque $T_L$. From the torque curve:
+            $$\Delta\theta = \frac{1}{N_r} \arcsin\left(\frac{T_L}{T_h}\right)$$
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     MODULE III – SRM
+════════════════════════════════════════════ -->
+<div id="mod3">
+<div class="module-header">
+  <div class="num">III</div>
+  <div>
+    <h2>Module III — Switched Reluctance Motor (SRM)</h2>
+    <p>Construction, torque derivation, power converter circuits, control schemes, synchronous reluctance motor</p>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-card important" id="q15">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">15a</div>
+    <div class="q-meta">
+      <div class="q-text">With neat circuit diagrams, explain the working of any two power electronic converter circuits for a Switched Reluctance Motor. (2026 — 8 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">8 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module III</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (8 Marks)</h4>
+      <div class="answer-text">
+<p>Power electronic converters for <span class="tech-term" data-def="Switched Reluctance Motor Converter: A specialized power converter that provides unipolar current pulses to the phase windings synchronized with rotor position.">Switched Reluctance Motors (SRM)</span> must provide unipolar current pulses and facilitate rapid demagnetization of phase windings during commutation. Two prominent converter topologies are:</p>
+
+        <h5>1. Asymmetric Half-Bridge Converter:</h5>
+        <ul>
+          <li><b>Circuit Topology:</b> Each phase requires two active semiconductor switches ($S_1, S_2$) and two fast-recovery freewheeling diodes ($D_1, D_2$). The phase winding is connected in series between the upper switch $S_1$ and lower switch $S_2$.</li>
+          <li><b>Operating Modes:</b>
+            <ol>
+              <li><b>Magnetization Mode (Energy Input):</b> Both switches $S_1$ and $S_2$ are turned ON. Full positive DC bus voltage $+V_{dc}$ is applied across the phase winding, causing current to rise rapidly to establish flux and motoring torque.</li>
+              <li><b>Freewheeling Mode (Zero-Voltage Loop):</b> One switch (e.g., $S_1$) is kept ON while the other ($S_2$) is turned OFF. Current freewheels through $S_1$ and forward-biased diode $D_1$. Voltage across the winding is zero, allowing current to decay slowly with minimal switching losses.</li>
+              <li><b>Demagnetization Mode (Regeneration):</b> Both switches $S_1$ and $S_2$ are turned OFF. The winding current forces diodes $D_1$ and $D_2$ to conduct. Full negative voltage $-V_{dc}$ is applied across the winding, rapidly extinguishing phase current and returning trapped magnetic field energy back to the DC supply.</li>
+            </ol>
+          </li>
+          <li><b>Advantages:</b> Completely independent control of each phase; zero shoot-through fault risk (winding is in series with switches).</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">srm_asymmetric_bridge.png</div>
+          <p>Upload: Asymmetric half-bridge converter circuit with T1, T2, D1, D2 and phase winding</p>
+          <img src="images/srm_asymmetric_bridge.png" alt="SRM asymmetric bridge converter" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Bifilar Winding Converter:</h5>
+        <ul>
+          <li><b>Circuit Topology:</b> Employs two closely coupled windings ($W_1$ and $W_2$) wound on the same stator pole. Primary winding $W_1$ is connected in series with a single active switch $S_1$. Secondary winding $W_2$ is wound in opposite magnetic sense and connected in series with a diode $D_1$ back to the DC rail.</li>
+          <li><b>Operating Modes:</b>
+            <ol>
+              <li><b>Conduction Mode:</b> Switch $S_1$ is turned ON. Current flows through primary winding $W_1$, producing magnetic flux and torque. Diode $D_1$ is reverse-biased by the induced transformer voltage.</li>
+              <li><b>Demagnetization Mode:</b> Switch $S_1$ is turned OFF. By transformer action, magnetic energy is transferred to secondary winding $W_2$, which forward-biases diode $D_1$ and discharges energy into the DC bus.</li>
+            </ol>
+          </li>
+          <li><b>Advantages:</b> Requires only <b>one active switch per phase</b>, minimizing driver hardware cost.</li>
+          <li><b>Disadvantage:</b> Poor copper utilization (only one winding conducts at a time) and severe voltage spikes across the switch caused by leakage inductance between the bifilar windings.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">srm_bifilar_converter.png</div>
+          <p>Upload: Bifilar (C-dump) converter circuit for SRM phase</p>
+          <img src="images/srm_bifilar_converter.png" alt="SRM bifilar C-dump converter" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q15b -->
+<div class="q-card important" id="q15b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">15b</div>
+    <div class="q-meta">
+      <div class="q-text">From fundamentals, derive the expression for torque developed in a synchronous reluctance motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">6 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module III</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (6 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Synchronous Reluctance Motor: An AC machine whose torque is derived from the difference in magnetic reluctance between the d-axis and q-axis of its rotor.">Synchronous Reluctance Motor (SynRM)</span> develops electromagnetic torque strictly based on rotor magnetic saliency ($L_d > L_q$) without rotor excitation windings or permanent magnets.</p>
+
+        <h5>1. Mathematical Derivation from Fundamentals:</h5>
+        <ol>
+          <li><b>Flux Linkages in $d-q$ Reference Frame:</b> Under rotor-oriented reference frame rotating at synchronous speed $\omega_e$:
+            <div class="eq-block">
+              $$\lambda_d = L_d i_d, \qquad \lambda_q = L_q i_q$$
+            </div>
+            Where $L_d$ is direct-axis inductance (along minimum reluctance path) and $L_q$ is quadrature-axis inductance (along maximum reluctance path).
+          </li>
+          <li><b>Magnetic Co-energy ($W_c'$):</b> Assuming a magnetically linear core without saturation, the total air-gap magnetic co-energy is:
+            <div class="eq-block">
+              $$W_c' = \frac{1}{2} \lambda_d i_d + \frac{1}{2} \lambda_q i_q = \frac{1}{2} L_d i_d^2 + \frac{1}{2} L_q i_q^2$$
+            </div>
+          </li>
+          <li><b>Electromagnetic Torque:</b> For an $m$-phase machine having $P$ pole pairs, developed torque is the derivative of co-energy with respect to rotor mechanical angle $\theta_m$ (where $\theta_e = P \theta_m$):
+            <div class="eq-block">
+              $$T_e = \frac{\partial W_c'}{\partial \theta_m} = P \frac{\partial W_c'}{\partial \theta_e} = \frac{3}{2} P (\lambda_d i_q - \lambda_q i_d)$$
+            </div>
+            Substituting $\lambda_d = L_d i_d$ and $\lambda_q = L_q i_q$:
+            <div class="eq-block">
+              $$T_e = \frac{3}{2} P (L_d i_d i_q - L_q i_q i_d) = \mathbf{\frac{3}{2} P (L_d - L_q) i_d i_q}$$
+            </div>
+          </li>
+          <li><b>Torque in Terms of Stator Current ($I_s$) &amp; Current Angle ($\beta$):</b> Let $I_s$ be the magnitude of stator current vector positioned at angle $\beta$ to the $d$-axis:
+            $$i_d = I_s \cos\beta, \qquad i_q = I_s \sin\beta$$
+            Substituting into torque expression:
+            <div class="eq-block">
+              $$T_e = \frac{3}{2} P (L_d - L_q) (I_s \cos\beta)(I_s \sin\beta) = \mathbf{\frac{3}{4} P (L_d - L_q) I_s^2 \sin(2\beta)}$$
+            </div>
+          </li>
+        </ol>
+
+        <h5>2. Key Technical Inferences:</h5>
+        <ul>
+          <li>Torque is proportional to the <b>saliency difference</b> $(L_d - L_q)$. Maximizing the saliency ratio ($L_d / L_q$) is crucial for torque density.</li>
+          <li><b>Maximum Torque Per Ampere (MTPA):</b> Maximum torque occurs when $\sin(2\beta) = 1 \implies \beta = 45^\circ$.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">synrm_phasor.png</div>
+          <p>Upload: SynRM phasor diagram showing V, I_s, δ, β, d-axis, q-axis</p>
+          <img src="images/synrm_phasor.png" alt="SynRM phasor diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-card important" id="q16">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">16</div>
+    <div class="q-meta">
+      <div class="q-text">Explain with figures the construction of any two rotor configurations of a synchronous reluctance motor. With a block diagram, explain any one control scheme of a switched reluctance motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module III</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (14 Marks)</h4>
+      <div class="answer-text">
+<p>This question comprises two core areas: Synchronous Reluctance Motor (SynRM) rotor construction and Switched Reluctance Motor (SRM) closed-loop control.</p>
+
+        <h5>Part A: Construction of Two Rotor Configurations for SynRM:</h5>
+        <ol>
+          <li><b>1. Axially Laminated Anisotropic (ALA) Rotor:</b>
+            <ul>
+              <li><i>Construction:</i> Alternating layers of high-permeability magnetic steel laminations and non-magnetic insulation sheets (fiberglass or aluminum) are shaped into pole arcs and stacked axially along the shaft.</li>
+              <li><i>Performance:</i> Flux flows effortlessly along the steel sheets ($d$-axis $\rightarrow$ high $L_d$), but encounters huge magnetic resistance across the insulation layers ($q$-axis $\rightarrow$ low $L_q$). Achieves exceptionally high saliency ratios ($L_d / L_q \approx 10-15$).</li>
+              <li><i>Drawback:</i> High manufacturing complexity and high eddy-current losses in axial laminations.</li>
+            </ul>
+          </li>
+          <li><b>2. Transversely Laminated Multiple Flux-Barrier (TLA) Rotor:</b>
+            <ul>
+              <li><i>Construction:</i> Conventional radial punchings of electrical steel sheets are stamped with curved flux barrier slits (air gaps) punched along the $q$-axis. Multiple punched sheets are stacked radially along the shaft.</li>
+              <li><i>Performance:</i> Steel ribs guide $d$-axis flux, while punched air barriers block $q$-axis flux. Achieves saliency ratios of $L_d / L_q \approx 6-9$.</li>
+              <li><i>Advantage:</i> Standard stamping manufacturing process, highly robust mechanically, and low eddy-current losses. Widely adopted in modern commercial SynRMs.</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">synrm_rotor_types.png</div>
+          <p>Upload: Cross-section of SynRM rotors — (a) Axially-laminated, (b) Transversally-laminated with flux barriers</p>
+          <img src="images/synrm_rotor_types.png" alt="SynRM rotor configurations" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>Part B: Closed-Loop Control Scheme of Switched Reluctance Motor (SRM):</h5>
+        <p>A high-performance SRM drive utilizes closed-loop speed and current control with rotor position synchronization:</p>
+        <ol>
+          <li><b>Outer Speed Feedback Loop:</b> Reference speed $\omega^*$ is compared with measured rotor speed $\omega$. A <b>PI Speed Controller</b> generates the reference torque command ($T^*$) and phase current magnitude command ($I^*$).</li>
+          <li><b>Rotor Position Decoding:</b> An optical encoder or resolver provides absolute rotor angle $\theta$ and instantaneous speed $\omega$.</li>
+          <li><b>Commutation Angle Control:</b> Based on speed and torque commands, the controller calculates optimal turn-on angle ($\theta_{\text{on}}$) and turn-off angle ($\theta_{\text{off}}$) to align phase current with the positive inductance slope ($\frac{dL}{d\theta} > 0$).</li>
+          <li><b>Current Control Modes:</b>
+            <ul>
+              <li><b>Current Chopping Control (CCC):</b> Used below base speed. A hysteresis current controller chops converter switches to regulate phase current to $I^*$ within a narrow band.</li>
+              <li><b>Angular Position Control (APC):</b> Used above base speed. Switches remain closed for the entire excitation period, and torque is controlled solely by advancing $\theta_{\text{on}}$.</li>
+            </ul>
+          </li>
+          <li><b>Power Converter:</b> Drives the SRM phase windings using an asymmetric half-bridge topology.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">srm_control_block.png</div>
+          <p>Upload: SRM closed-loop speed control block diagram</p>
+          <img src="images/srm_control_block.png" alt="SRM control scheme block diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /mod3 -->
+
+<!-- Q15c NEW – SRM Construction & Energy-based Torque Derivation -->
+<div class="q-card important" id="q15c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">15c</div>
+    <div class="q-meta">
+      <div class="q-text">With neat sketches, explain the construction of a Switched Reluctance Motor (SRM). From first principles using energy/co-energy, derive the expression for electromagnetic torque developed in an SRM.</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module III</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Full Page Answer (14 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Switched Reluctance Motor (SRM): A doubly salient, singly excited AC machine where torque is developed by the magnetic attraction of rotor poles to the nearest energized stator poles.">Switched Reluctance Motor (SRM)</span> is a doubly-salient machine that operates through sequential excitation of concentrated stator windings to align rotor teeth with stator poles.</p>
+
+        <h5>Part A: Construction of Switched Reluctance Motor (SRM):</h5>
+        <ul>
+          <li><b>Stator:</b> Built from laminated silicon-steel punchings with salient poles projecting inward. Concentrated coils (simple solenoidal windings) are placed around each pole. Opposite poles are connected in series to form one phase. No distributed overlapping windings are used.</li>
+          <li><b>Rotor:</b> Completely passive structure made of laminated electrical steel with projecting salient teeth. Has <b>no windings, no slip rings, no brushes, and no permanent magnets</b>, making it exceptionally rugged, low-cost, and capable of extremely high rotational speeds.</li>
+          <li><b>Pole Configurations:</b> Characterized by stator-to-rotor pole combinations such as $6/4$ (3-phase) or $8/6$ (4-phase). Unequal pole numbers ($N_s \neq N_r$) ensure that all poles never align simultaneously, guaranteeing self-starting capability.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">srm_8_6_construction.png</div>
+          <p>Upload: 8/6 SRM cross-section showing stator poles with windings, rotor poles, aligned and unaligned positions</p>
+          <img src="images/srm_8_6_construction.png" alt="SRM 8/6 construction" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>Part B: Derivation of Torque from First Principles (Energy and Co-Energy):</h5>
+        <ol>
+          <li><b>System Energy Balance:</b> For an electromechanical system, incremental electrical energy input $dW_e$ equals the sum of change in stored magnetic field energy $dW_f$ and mechanical work done $dW_m$:
+            <div class="eq-block">
+              $$dW_e = dW_f + dW_m$$
+            </div>
+          </li>
+          <li><b>Electrical Energy Input:</b>
+            $$dW_e = v \, i \, dt = \left( R i + \frac{d\lambda}{dt} \right) i \, dt = i^2 R \, dt + i \, d\lambda$$
+            Neglecting winding copper losses ($i^2 R \, dt$):
+            $$dW_e = i \, d\lambda$$
+          </li>
+          <li><b>Co-energy Concept:</b> Magnetic co-energy $W_c'$ is defined by the Legendre transformation:
+            <div class="eq-block">
+              $$W_c' = i \lambda - W_f \implies dW_c' = i \, d\lambda + \lambda \, di - dW_f$$
+            </div>
+            Substituting $dW_f = dW_e - dW_m = i \, d\lambda - T_e \, d\theta$:
+            <div class="eq-block">
+              $$dW_c' = i \, d\lambda + \lambda \, di - (i \, d\lambda - T_e \, d\theta) = \lambda \, di + T_e \, d\theta$$
+            </div>
+          </li>
+          <li><b>Electromagnetic Torque Expression:</b> Under constant current excitation ($di = 0$):
+            <div class="eq-block">
+              $$\mathbf{T_e = \left. \frac{\partial W_c'}{\partial \theta} \right|_{i = \text{const}}}$$
+            </div>
+          </li>
+          <li><b>Linear Magnetic System Formulation:</b> For an unsaturated magnetic circuit, flux linkage is $\lambda(\theta, i) = L(\theta) i$. Stored co-energy is:
+            <div class="eq-block">
+              $$W_c' = \int_0^i \lambda(\theta, i') \, di' = \int_0^i L(\theta) i' \, di' = \frac{1}{2} L(\theta) i^2$$
+            </div>
+            Differentiating with respect to rotor angle $\theta$:
+            <div class="eq-block">
+              $$\mathbf{T_e = \frac{1}{2} i^2 \frac{dL(\theta)}{d\theta}}$$
+            </div>
+          </li>
+        </ol>
+
+        <h5>Technical Inferences:</h5>
+        <ul>
+          <li><b>Direction of Torque:</b> Depends solely on the sign of $\frac{dL}{d\theta}$, independent of current direction ($i^2 > 0$). Unipolar current converters can be used.</li>
+          <li><b>Motoring vs Generating:</b> Motoring occurs when phase is excited during rising inductance ($\frac{dL}{d\theta} > 0$). Generating (braking) occurs during falling inductance ($\frac{dL}{d\theta} < 0$).</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">srm_inductance_profile.png</div>
+          <p>Upload: SRM inductance vs rotor angle profile (L_al, L_un, conduction region) + λ-i loop showing converted energy</p>
+          <img src="images/srm_inductance_profile.png" alt="SRM inductance profile and energy loop" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     MODULE IV – SERVOMOTORS
+════════════════════════════════════════════ -->
+<div id="mod4">
+<div class="module-header">
+  <div class="num">IV</div>
+  <div>
+    <h2>Module IV — Servomotors</h2>
+    <p>AC &amp; DC servomotors, transfer functions, torque-speed characteristics, special servomotor types</p>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-card important" id="q17">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">17a</div>
+    <div class="q-meta">
+      <div class="q-text">With neat sketches, explain the construction of various types of rotors used for an AC servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">9 Marks</span>
+        <span class="tag year">2026</span>
+        <span class="tag imp-tag">⭐ Important</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>An <span class="tech-term" data-def="AC Servomotor: A two-phase induction motor with high rotor resistance, designed for closed-loop control systems. It has low rotor inertia and linear torque-speed characteristics.">AC Servomotor</span> is essentially a two-phase induction motor designed for low rotor inertia ($J$) and high rotor resistance ($R_2$) to prevent single-phasing and guarantee linear torque-speed characteristics. Three distinct types of rotor construction are used:</p>
+
+        <h5>1. Squirrel-Cage Rotor:</h5>
+        <ul>
+          <li><b>Construction:</b> Assembled from thin, low-loss silicon-steel laminations. The rotor is designed with a very small diameter ($D$) and large axial length ($L$) to maintain a high length-to-diameter ratio ($L/D$).</li>
+          <li><b>Rotor Conductors:</b> Conductor bars are made of high-resistance materials (brass, bronze, or aluminum alloys) and short-circuited by end rings. The bars are skewed to eliminate cogging and harmonic torques.</li>
+          <li><b>Performance:</b> Minimizes the moment of inertia ($J \propto D^4$), resulting in high acceleration capability. Rugged, durable, and widely used in general industrial automation.</li>
+        </ul>
+
+        <h5>2. Drag-Cup Rotor:</h5>
+        <ul>
+          <li><b>Construction:</b> The rotor consists of an extremely thin, lightweight hollow cup of non-magnetic conducting metal (aluminum or copper alloy) attached to a central drive shaft.</li>
+          <li><b>Magnetic Circuit:</b> The thin cup rotates within the narrow air gap between an external slotted laminated stator core and an <b>internal stationary laminated iron core</b> mounted coaxially to complete the low-reluctance magnetic path.</li>
+          <li><b>Performance:</b> Because there is no rotating iron core attached to the shaft, the rotor inertia is exceptionally low, providing the fastest dynamic response of all AC servomotor types. Completely free of slot cogging.</li>
+        </ul>
+
+        <h5>3. Solid Iron Core Rotor:</h5>
+        <ul>
+          <li><b>Construction:</b> Consists of an unslotted cylinder of solid high-resistivity magnetic steel directly mounted on the shaft.</li>
+          <li><b>Performance:</b> Rotor currents circulate as continuous eddy-current paths within the solid steel body itself. Offers extraordinary mechanical rigidity, easy dynamic balancing, and high internal damping, making it suitable for high-speed military and aerospace actuators.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">ac_servomotor_rotors.png</div>
+          <p>Upload: Three rotor types — squirrel cage, drag cup cross-section, solid rotor</p>
+          <img src="images/ac_servomotor_rotors.png" alt="AC servomotor rotor types" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q17b -->
+<div class="q-card important" id="q17b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">17b</div>
+    <div class="q-meta">
+      <div class="q-text">Draw and explain the torque-speed characteristics of a DC servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">5 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>The torque-speed characteristics of a <span class="tech-term" data-def="DC Servomotor: A separately excited or permanent magnet DC motor used in control systems. It provides linear torque-speed characteristics and fast response.">DC Servomotor</span> describe its steady-state rotational speed as a function of shaft torque for various control voltages.</p>
+
+        <h5>1. Mathematical Derivation of Speed Equation:</h5>
+        <p>For an armature-controlled DC servomotor with constant field flux ($\Phi$):</p>
+        <div class="eq-block">
+          $$V_a = E_b + I_a R_a = k_b \omega + I_a R_a$$
+        </div>
+        <p>Since developed torque is $T = k_t I_a \implies I_a = \frac{T}{k_t}$:</p>
+        <div class="eq-block">
+          $$V_a = k_b \omega + \left( \frac{T}{k_t} \right) R_a \implies \mathbf{\omega = \frac{V_a}{k_b} - \left( \frac{R_a}{k_b k_t} \right) T}$$
+        </div>
+
+        <h5>2. Characteristics Curve Description:</h5>
+        <ul>
+          <li><b>Linear Family of Curves:</b> The torque-speed curves form a family of parallel, straight lines with a negative slope for different values of armature voltage ($V_{a1} < V_{a2} < V_{a3}$).</li>
+          <li><b>Slope:</b> The slope is strictly negative and constant:
+            $$\frac{d\omega}{dT} = -\frac{R_a}{k_b k_t}$$
+          </li>
+        </ul>
+
+        <h5>3. Significance of Negative Slope:</h5>
+        <ol>
+          <li><b>Internal Electrical Damping:</b> The steep downward slope represents a high internal damping coefficient ($D = \frac{k_b k_t}{R_a}$). When load torque increases, speed drops without oscillation, inherently suppressing hunting and overshoot.</li>
+          <li><b>Stable Equilibrium:</b> Guarantees closed-loop dynamic stability across the entire operating range.</li>
+          <li><b>Linear Control:</b> Uniform spacing between curves ensures proportional speed control with variation in armature terminal voltage.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">dc_servomotor_torque_speed.png</div>
+          <p>Upload: DC servomotor torque-speed characteristics for different armature voltages (family of straight lines)</p>
+          <img src="images/dc_servomotor_torque_speed.png" alt="DC servomotor torque speed characteristics" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-card important" id="q18">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">18a</div>
+    <div class="q-meta">
+      <div class="q-text">Derive the expression for the transfer function of a field-controlled DC servomotor. Also draw its block diagram.</div>
+      <div class="q-tags">
+        <span class="tag marks">8 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (8 Marks)</h4>
+      <div class="answer-text">
+<p>In a <span class="tech-term" data-def="Field-Controlled DC Servomotor: A DC servomotor where control is achieved by varying the field voltage while keeping armature current constant.">field-controlled DC servomotor</span>, the armature current $I_a$ is maintained constant from a separate DC source, and the control input signal is applied to the field winding as variable voltage $v_f(t)$.</p>
+
+        <h5>1. Derivation of System Equations:</h5>
+        <ol>
+          <li><b>Field Circuit Equation:</b>
+            $$v_f(t) = R_f i_f(t) + L_f \frac{di_f(t)}{dt}$$
+            Taking Laplace transform with zero initial conditions:
+            <div class="eq-block">
+              $$V_f(s) = (R_f + s L_f) I_f(s) = R_f (1 + s \tau_f) I_f(s) \implies I_f(s) = \frac{V_f(s)}{R_f (1 + s \tau_f)}$$
+            </div>
+            Where field electrical time constant is $\tau_f = \frac{L_f}{R_f}$.
+          </li>
+          <li><b>Motor Torque Equation:</b> Since armature current $I_a$ is constant, air-gap flux is directly proportional to field current:
+            <div class="eq-block">
+              $$T_m(t) = K_m i_f(t) \implies T_m(s) = K_m I_f(s)$$
+            </div>
+            Where $K_m$ is the motor torque constant.
+          </li>
+          <li><b>Mechanical Load Equation:</b> Developed torque overcomes total rotor inertia $J$ and viscous friction $B$:
+            <div class="eq-block">
+              $$T_m(t) = J \frac{d^2\theta(t)}{dt^2} + B \frac{d\theta(t)}{dt}$$
+              $$T_m(s) = (J s^2 + B s) \Theta(s) = s B (1 + s \tau_m) \Theta(s)$$
+            </div>
+            Where mechanical time constant is $\tau_m = \frac{J}{B}$.
+          </li>
+        </ol>
+
+        <h5>2. Overall Transfer Function:</h5>
+        <p>Equating developed torque $T_m(s)$ between the electrical and mechanical expressions:</p>
+        <div class="eq-block">
+          $$s B (1 + s \tau_m) \Theta(s) = \frac{K_m V_f(s)}{R_f (1 + s \tau_f)}$$
+          $$\mathbf{\frac{\Theta(s)}{V_f(s)} = \frac{K_m}{s R_f B (1 + s \tau_f)(1 + s \tau_m)} = \frac{K}{s (1 + s \tau_f)(1 + s \tau_m)}}$$
+        </div>
+        <p>Where motor gain constant is $K = \frac{K_m}{R_f B}$. The system is of type-1 and second-order.</p>
+
+        <h5>3. Block Diagram Description:</h5>
+        <p>Consists of three cascaded open-loop blocks: (1) Field electrical admittance $\frac{1/R_f}{1 + s\tau_f}$ converting $V_f(s)$ to $I_f(s)$; (2) Torque constant $K_m$ converting $I_f(s)$ to $T_m(s)$; (3) Mechanical transfer function $\frac{1/B}{s(1 + s\tau_m)}$ converting $T_m(s)$ to angular position $\Theta(s)$.</p>
+        
+        <div class="diagram">
+          <div class="img-name">field_controlled_servomotor_block.png</div>
+          <p>Upload: Block diagram of field-controlled DC servomotor showing field circuit, torque generation, and mechanical system blocks</p>
+          <img src="images/field_controlled_servomotor_block.png" alt="Field controlled DC servomotor block diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q18b -->
+<div class="q-card" id="q18b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">18b</div>
+    <div class="q-meta">
+      <div class="q-text">With a neat figure, explain the construction and operation of a series-split-field DC servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">6 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Series-Split-Field DC Servomotor: A DC motor with two equal series field windings wound in opposite directions on each pole, controlled via push-pull electronic drivers for bidirectional operation.">series-split-field DC servomotor</span> is a specialized variable-speed DC machine used in low-power aerospace and instrument servo systems for bidirectional position control.</p>
+
+        <h5>1. Constructional Details:</h5>
+        <ul>
+          <li><b>Field Windings:</b> The series field winding on each pole is split into two identical, electrically isolated halves ($F_1$ and $F_2$) wound in magnetic opposition to each other.</li>
+          <li><b>Armature Connection:</b> The armature is connected in series with the center-tapped common node of the two split field windings.</li>
+          <li><b>Electronic Drive:</b> The outer terminals of windings $F_1$ and $F_2$ are connected to the collectors/drains of two switching transistors operating in push-pull differential mode.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">series_split_field_servomotor.png</div>
+          <p>Upload: Series split-field servomotor schematic showing F1, F2, armature, and control winding</p>
+          <img src="images/series_split_field_servomotor.png" alt="Series split field servomotor" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Working Principle &amp; Operation:</h5>
+        <ol>
+          <li><b>Forward Rotation:</b> When a positive control error signal is applied, driver transistor $Q_1$ conducts, passing current from the DC supply through field winding $F_1$ and then through the armature. The magnetic flux produced by $F_1$ creates forward motoring torque.</li>
+          <li><b>Reverse Rotation:</b> When the control signal reverses polarity, transistor $Q_2$ conducts while $Q_1$ is cut off. Current flows through field winding $F_2$ and the armature. Because $F_2$ is wound in the opposite direction, the field flux reverses direction while armature current direction remains unchanged, developing reverse torque.</li>
+          <li><b>Zero Signal (Braking):</b> With zero input signal, both transistors are OFF, isolating the motor. If dynamic braking is required, both windings can be energized simultaneously to cancel net flux and rapidly stop the shaft.</li>
+        </ol>
+
+        <h5>3. Technical Features:</h5>
+        <ul>
+          <li><b>High Starting Torque:</b> Possesses series motor torque characteristics ($T \propto I^2$), providing rapid breakaway from standstill.</li>
+          <li><b>Drawback:</b> Poor copper utilization because only one-half of the field winding conducts at any given time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /mod4 -->
+
+<!-- Q18c NEW – Armature-Controlled DC Servomotor Transfer Function -->
+<div class="q-card important" id="q18c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">18c</div>
+    <div class="q-meta">
+      <div class="q-text">Derive the transfer function of an armature-controlled DC servomotor. Draw its block diagram. Compare it with field-controlled DC servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">8 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (8 Marks)</h4>
+      <div class="answer-text">
+<p>In an <span class="tech-term" data-def="Armature-Controlled DC Servomotor: A DC servomotor where control voltage is applied to the armature circuit while the field flux is held constant. It provides fast dynamic response due to back-EMF damping.">armature-controlled DC servomotor</span>, the field winding is excited with a constant DC voltage (producing constant flux $\Phi$), and the variable control voltage $v_a(t)$ is applied to the armature circuit.</p>
+
+        <h5>1. Derivation of Transfer Function:</h5>
+        <ol>
+          <li><b>Armature Circuit Equation:</b>
+            $$v_a(t) = R_a i_a(t) + L_a \frac{di_a(t)}{dt} + e_b(t)$$
+            Taking Laplace transform (with $e_b(t) = K_b \frac{d\theta}{dt} = K_b \omega(t)$):
+            <div class="eq-block">
+              $$V_a(s) - E_b(s) = (R_a + s L_a) I_a(s) \implies I_a(s) = \frac{V_a(s) - K_b s \Theta(s)}{R_a (1 + s \tau_a)}$$
+            </div>
+            For small servomotors, armature inductance is negligible ($L_a \approx 0 \implies \tau_a \approx 0$):
+            $$I_a(s) = \frac{V_a(s) - K_b s \Theta(s)}{R_a}$$
+          </li>
+          <li><b>Torque &amp; Mechanical Equations:</b>
+            $$T_m(s) = K_t I_a(s) = (J s^2 + B s) \Theta(s)$$
+          </li>
+          <li><b>Combining &amp; Rearranging:</b>
+            $$\frac{K_t}{R_a} [V_a(s) - K_b s \Theta(s)] = (J s^2 + B s) \Theta(s)$$
+            $$\frac{K_t}{R_a} V_a(s) = \left[ J s^2 + \left( B + \frac{K_t K_b}{R_a} \right) s \right] \Theta(s)$$
+            <div class="eq-block">
+              $$\mathbf{\frac{\Theta(s)}{V_a(s)} = \frac{K_m}{s (1 + s \tau_m)}}$$
+            </div>
+            Where effective viscous damping is $B_{\text{eff}} = B + \frac{K_t K_b}{R_a}$, motor gain is $K_m = \frac{K_t}{R_a B_{\text{eff}}}$, and mechanical time constant is $\tau_m = \frac{J}{B_{\text{eff}}}$.
+          </li>
+        </ol>
+
+        <h5>2. Comparison: Armature-Controlled vs Field-Controlled DC Servomotor:</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Armature-Controlled Servomotor</th>
+              <th>Field-Controlled Servomotor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Dynamic Response</b></td>
+              <td>Very fast (small mechanical time constant $	au_m$ due to strong back-EMF damping).</td>
+              <td>Slower response (dominated by large field electrical time constant $	au_f = L_f/R_f$).</td>
+            </tr>
+            <tr>
+              <td><b>Back-EMF Damping</b></td>
+              <td>Inherent back-EMF feedback loop provides powerful internal damping against oscillations.</td>
+              <td>No back-EMF in field circuit; poor natural dynamic damping.</td>
+            </tr>
+            <tr>
+              <td><b>Control Circuit Power</b></td>
+              <td>Requires full motor rated power amplifier to handle heavy armature current.</td>
+              <td>Requires small, low-power control amplifier (field handles small current).</td>
+            </tr>
+            <tr>
+              <td><b>Linearity</b></td>
+              <td>Highly linear torque-speed characteristics across entire control range.</td>
+              <td>Non-linearities present due to core magnetic saturation.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="diagram">
+          <div class="img-name">armature_controlled_servo_block.png</div>
+          <p>Upload: Block diagram of armature-controlled DC servomotor showing armature circuit, back-EMF feedback, torque generation, and mechanical block</p>
+          <img src="images/armature_controlled_servo_block.png" alt="Armature controlled DC servomotor block diagram" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q18d NEW – Transfer Function of AC Servomotor -->
+<div class="q-card important" id="q18d">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">18d</div>
+    <div class="q-meta">
+      <div class="q-text">Derive the transfer function of a two-phase AC servomotor. Explain the significance of negative slope of torque-speed characteristic for stable servo operation.</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Syllabus Core</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (7 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Two-Phase AC Servomotor: A miniature induction motor driven by two phase-quadrature voltages (reference and control), designed with high rotor resistance for linear control.">two-phase AC servomotor</span> consists of a stator with two distributed windings spaced $90^\circ$ electrical apart: a constant Reference Phase ($V_r$) and a variable Control Phase ($V_c$).</p>
+
+        <h5>1. Derivation of Transfer Function:</h5>
+        <ol>
+          <li><b>Linearized Torque-Speed Characteristic:</b> Because torque is non-linear, it is linearized about the operating point using partial derivatives:
+            <div class="eq-block">
+              $$T_m = K_c V_c - K_n \omega = K_c V_c(t) - K_n \frac{d\theta(t)}{dt}$$
+            </div>
+            Where:
+            $$K_c = \left. \frac{\partial T}{\partial V_c} \right|_{\omega} = \text{Torque constant}, \qquad K_n = -\left. \frac{\partial T}{\partial \omega} \right|_{V_c} = \text{Damping coefficient (slope of torque-speed curve)}$$
+          </li>
+          <li><b>Mechanical Load Equation:</b>
+            <div class="eq-block">
+              $$T_m(t) = J \frac{d^2\theta(t)}{dt^2} + B \frac{d\theta(t)}{dt}$$
+            </div>
+          </li>
+          <li><b>Transfer Function Formulation:</b> Equating motor torque to mechanical load in the Laplace domain:
+            $$K_c V_c(s) - K_n s \Theta(s) = (J s^2 + B s) \Theta(s)$$
+            $$K_c V_c(s) = [J s^2 + (B + K_n) s] \Theta(s)$$
+            <div class="eq-block">
+              $$\mathbf{\frac{\Theta(s)}{V_c(s)} = \frac{K_m}{s (1 + s \tau_m)}}$$
+            </div>
+            Where motor gain is $K_m = \frac{K_c}{B + K_n}$ and motor time constant is $\tau_m = \frac{J}{B + K_n}$.
+          </li>
+        </ol>
+
+        <h5>2. Significance of Negative Slope ($K_n$) for Stable Servo Operation:</h5>
+        <ol>
+          <li><b>Prevents Single-Phasing:</b> When control voltage drops to zero ($V_c = 0$), a conventional low-resistance induction motor continues to run as a single-phase motor. In an AC servomotor, the high rotor resistance ensures that torque is negative for all forward speeds ($T < 0$ at $V_c = 0$), forcing the motor to come to an immediate halt.</li>
+          <li><b>Internal Electrical Damping:</b> The term $K_n$ adds directly to viscous friction $B$ ($B_{\text{total}} = B + K_n$), providing strong electromagnetic damping that eliminates hunting and ensures closed-loop stability.</li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">ac_servomotor_torque_speed.png</div>
+          <p>Upload: AC servomotor torque-speed curves for different control voltages showing negative slope and stable operating region</p>
+          <img src="images/ac_servomotor_torque_speed.png" alt="AC servomotor torque speed characteristics" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     MODULE V – LINEAR & SPECIAL MOTORS
+════════════════════════════════════════════ -->
+<div id="mod5">
+<div class="module-header">
+  <div class="num">V</div>
+  <div>
+    <h2>Module V — Linear Motors &amp; Special AC Motors</h2>
+    <p>LIM (Linear Induction Motor), LSM, Hysteresis motor, Repulsion motor, Universal motor</p>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-card important" id="q19">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">19a</div>
+    <div class="q-meta">
+      <div class="q-text">Derive the expression for thrust (linear force) developed in a linear induction motor. Enumerate three advantages of linear motors over rotational motors.</div>
+      <div class="q-tags">
+        <span class="tag marks">8 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (8 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Linear Induction Motor (LIM): An AC motor that operates on the induction principle to produce linear motion directly. Its primary is an unrolled 3-phase stator, and secondary is a conducting plate backed by iron.">Linear Induction Motor (LIM)</span> converts polyphase electrical energy directly into linear mechanical thrust without mechanical transmission.</p>
+
+        <h5>1. Derivation of Linear Thrust ($F_s$):</h5>
+        <ol>
+          <li><b>Linear Synchronous Velocity ($v_s$):</b> For a 3-phase primary with pole pitch $\tau$ (linear distance between adjacent poles in meters) excited at supply frequency $f$:
+            <div class="eq-block">
+              $$v_s = 2 \tau f \quad (\text{m/s})$$
+            </div>
+          </li>
+          <li><b>Linear Slip ($s$):</b> If the secondary reaction plate moves at linear velocity $v$:
+            <div class="eq-block">
+              $$s = \frac{v_s - v}{v_s} \implies v = (1 - s) v_s$$
+            </div>
+          </li>
+          <li><b>Secondary Current Referred to Primary ($I_2'$):</b> From the standard induction motor equivalent circuit:
+            <div class="eq-block">
+              $$I_2' = \frac{V_1}{\sqrt{\left( R_1 + \frac{R_2'}{s} \right)^2 + (X_1 + X_2')^2}}$$
+            </div>
+          </li>
+          <li><b>Air-Gap Power Transferred ($P_g$):</b> For an $m$-phase primary winding, the total power transferred across the air gap into the secondary is:
+            <div class="eq-block">
+              $$P_g = m (I_2')^2 \frac{R_2'}{s}$$
+            </div>
+          </li>
+          <li><b>Mechanical Power Developed ($P_m$):</b>
+            <div class="eq-block">
+              $$P_m = (1 - s) P_g = m (I_2')^2 R_2' \frac{1 - s}{s}$$
+            </div>
+          </li>
+          <li><b>Developed Thrust Force ($F_s$):</b> Developed linear thrust equals mechanical power divided by actual linear velocity:
+            <div class="eq-block">
+              $$F_s = \frac{P_m}{v} = \frac{(1 - s) P_g}{(1 - s) v_s} = \frac{P_g}{v_s}$$
+            </div>
+            Substituting $P_g$ and $v_s = 2 \tau f$:
+            <div class="eq-block">
+              $$\mathbf{F_s = \frac{m}{2 \tau f} \cdot \frac{V_1^2 \left( \frac{R_2'}{s} \right)}{\left( R_1 + \frac{R_2'}{s} \right)^2 + (X_1 + X_2')^2}}$$
+            </div>
+          </li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">lim_diagram_thrust.png</div>
+          <p>Upload: LIM structure (primary, secondary, air-gap, TMF direction, thrust F) and equivalent circuit</p>
+          <img src="images/lim_diagram_thrust.png" alt="LIM structure and thrust derivation" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Three Advantages of Linear Motors over Rotational Motors:</h5>
+        <ol>
+          <li><b>Direct Contactless Motion:</b> Produces linear thrust directly without rotary-to-linear conversion hardware (gears, lead screws, belts, and couplings), eliminating backlash, friction, and mechanical compliance.</li>
+          <li><b>High Linear Velocity &amp; Acceleration:</b> Speed is not limited by centrifugal stresses on rotor bars or wheel-rail adhesion limits; linear speeds exceeding $400\text{ km/h}$ are achievable.</li>
+          <li><b>Low Maintenance:</b> Non-contact magnetic interaction across the air gap eliminates sliding mechanical surfaces, ensuring long operational life with zero lubrication requirements.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q19b -->
+<div class="q-card important" id="q19b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">19b</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the transverse edge effect and end effects in a linear induction motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">6 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>Unlike conventional rotary induction motors, a <span class="tech-term" data-def="LIM Non-Ideal Effects: Finite primary length and open-sided secondary plate cause parasitic electromagnetic effects that reduce thrust and efficiency.">Linear Induction Motor (LIM)</span> is open-ended and asymmetric, giving rise to two distinct parasitic phenomena:</p>
+
+        <h5>1. Transverse Edge Effect:</h5>
+        <ul>
+          <li><b>Origin:</b> The secondary conducting plate (aluminum sheet) is usually wider than the primary core laminations. The induced eddy currents in the sheet have both longitudinal ($x$-axis) and transverse ($y$-axis) current density components.</li>
+          <li>At the transverse edges of the reaction plate, current lines must bend around to complete their return loops. This current constriction distorts the magnetic field distribution and increases effective secondary resistance ($R_2'$).</li>
+          <li><b>Consequences:</b>
+            <ol>
+              <li>Substantially reduces the average developed longitudinal thrust ($F_s$).</li>
+              <li>Induces undesirable parasitic transverse lateral forces that pull the vehicle off-center toward the guideway wall.</li>
+            </ol>
+          </li>
+          <li><b>Mitigation:</b> Overhang the conducting sheet moderately beyond the primary width (optimal overhang $\approx 0.3 \times \text{pole pitch}$) or use longitudinally slit reaction sheets.</li>
+        </ul>
+
+        <h5>2. Longitudinal End Effect:</h5>
+        <ul>
+          <li><b>Origin:</b> The primary core has a finite length with a distinct <b>entry edge</b> and <b>exit edge</b>.</li>
+          <li>As a section of the secondary enters the primary core at speed $v$, it experiences a sudden step change in magnetic field. By Lenz's law, a transient counter-eddy current is induced at the entry edge that opposes and weakens the air-gap traveling magnetic wave.</li>
+          <li>At the exit edge, trapped magnetic field energy is dumped into the leaving secondary plate, producing localized eddy-current heating without useful thrust.</li>
+          <li><b>Consequences:</b>
+            <ol>
+              <li>Severely attenuates the net traveling flux density along the primary core, especially at high linear speeds.</li>
+              <li>Significantly lowers developed thrust, motor efficiency, and power factor.</li>
+            </ol>
+          </li>
+          <li><b>Mitigation:</b> Use primaries with a large number of poles ($P \ge 8$) to minimize the relative proportion of end zones, or implement graded end-pole windings.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">lim_edge_end_effects.png</div>
+          <p>Upload: Diagram showing transverse edge effect current paths and end effect zones (entry/exit) in LIM</p>
+          <img src="images/lim_edge_end_effects.png" alt="LIM edge and end effects" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-card important" id="q20">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">20a</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the construction and principle of operation of a hysteresis motor. Sketch and explain its torque-speed characteristics.</div>
+      <div class="q-tags">
+        <span class="tag marks">10 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Most Important</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (10 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Hysteresis Motor: A single-phase synchronous motor whose torque is produced by the magnetic hysteresis loop of a hard permanent magnetic rotor material. It runs quietly at synchronous speed.">hysteresis motor</span> is a synchronous machine whose torque is produced by the magnetic hysteresis loss and magnetic retentivity of a specialized rotor made of hard magnetic material.</p>
+
+        <h5>1. Constructional Details:</h5>
+        <ul>
+          <li><b>Stator:</b> Houses a single-phase winding (with a permanent-split capacitor) or balanced 3-phase distributed winding. Constructed from low-loss silicon-steel laminations to produce a smoothly rotating air-gap magnetic field (RMF) of constant amplitude.</li>
+          <li><b>Rotor:</b> Built as a smooth, slotless cylinder made of a <b>hard magnetic material</b> possessing a very wide hysteresis loop (high retentivity and high coercivity, such as Chrome Steel, Cobalt Steel, or Alnico alloys).</li>
+          <li><b>Non-Magnetic Arbor:</b> The hard magnetic ring is supported on a non-magnetic sleeve (brass or aluminum) mounted on the drive shaft to prevent magnetic flux leakage into the shaft.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">hysteresis_motor_construction.png</div>
+          <p>Upload: Hysteresis motor cross-section (smooth cylindrical rotor, stator winding) + hysteresis loop of rotor material</p>
+          <img src="images/hysteresis_motor_construction.png" alt="Hysteresis motor construction" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Principle of Operation &amp; Torque Generation:</h5>
+        <ol>
+          <li><b>Standstill to Sub-Synchronous Speed (Acceleration):</b>
+            <ul>
+              <li>The rotating stator field induces cyclic magnetic hysteresis and eddy currents in the rotor ring at slip frequency $f_r = s f_s$.</li>
+              <li>Hysteresis energy loss per unit rotor volume per cycle is equal to the area of the material's hysteresis loop ($A_{ph}$).</li>
+              <li>Total hysteresis power transferred to the rotor is:
+                $$P_h = f_r \cdot V_r \cdot A_{ph} = s f_s \cdot V_r \cdot A_{ph}$$
+              </li>
+              <li>Developed hysteresis torque is:
+                <div class="eq-block">
+                  $$T_h = \frac{P_h}{s \omega_s} = \frac{s \omega_s V_r A_{ph}}{s \omega_s} = \frac{V_r A_{ph}}{2\pi} = \mathbf{\text{Constant}}$$
+                </div>
+              </li>
+              <li>Because torque $T_h$ is independent of slip frequency $s$, the motor develops <b>strictly constant torque from standstill all the way up to synchronous speed</b>.</li>
+            </ul>
+          </li>
+          <li><b>Synchronous Operation ($N = N_s$):</b>
+            <ul>
+              <li>As the rotor reaches synchronous speed, slip becomes zero ($s = 0$). Eddy currents and cyclic hysteresis reversals cease completely.</li>
+              <li>The rotor ring remains permanently magnetized by magnetic retentivity. The rotor magnetic poles lock synchronously with the rotating stator field poles, and the motor runs as a permanent magnet synchronous motor without slip.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h5>3. Torque-Speed Characteristics:</h5>
+        <p>The torque-speed curve is a completely flat, horizontal line from zero speed to synchronous speed $N_s$. At synchronous speed, the motor can sustain loads up to the pull-out torque margin before falling out of step.</p>
+        
+        <div class="diagram">
+          <div class="img-name">hysteresis_motor_torque_speed.png</div>
+          <p>Upload: Hysteresis motor torque-speed curve (flat constant torque region + synchronous pull-in)</p>
+          <img src="images/hysteresis_motor_torque_speed.png" alt="Hysteresis motor torque speed characteristics" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>4. Salient Features:</h5>
+        <ul>
+          <li>Completely silent and vibration-free operation due to smooth, unslotted rotor.</li>
+          <li>High starting torque equal to running torque.</li>
+          <li>Ideal for sound recording equipment, audio turntables, gyroscopes, and precision timing mechanisms.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q20b -->
+<div class="q-card important" id="q20b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">20b</div>
+    <div class="q-meta">
+      <div class="q-text">Draw and explain the equivalent circuit and phasor diagram of a universal motor.</div>
+      <div class="q-tags">
+        <span class="tag marks">4 Marks</span>
+        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Universal Motor: A series-wound commutated motor designed to operate on either direct current (DC) or single-phase alternating current (AC) at approximately the same speed and output.">universal motor</span> is a modified DC series motor designed to operate effectively on either DC or single-phase AC power.</p>
+
+        <h5>1. Operation on AC Supply:</h5>
+        <p>When energized by single-phase AC, the alternating current reverses direction in both the armature winding and field winding simultaneously every half-cycle:</p>
+        <div class="eq-block">
+          $$T_e \propto \phi(t) \cdot i_a(t) \propto i(t)^2 > 0$$
+        </div>
+        <p>Because current squared is always positive, the motor develops continuous unidirectional electromagnetic torque.</p>
+
+        <h5>2. Equivalent Circuit Description:</h5>
+        <p>The equivalent circuit on AC consists of an AC source $V$ supplying a series branch containing:</p>
+        <ul>
+          <li>Field winding resistance $R_f$ and field leakage reactance $X_f = 2\pi f L_f$.</li>
+          <li>Armature winding resistance $R_a$ and armature leakage reactance $X_a = 2\pi f L_a$.</li>
+          <li>Armature induced rotational back-EMF $E_b$ in phase with current $I$.</li>
+        </ul>
+
+        <h5>3. Phasor Diagram Formulation:</h5>
+        <ol>
+          <li>Armature current $I$ is taken as the reference phasor along the horizontal axis.</li>
+          <li>Total in-phase voltage drop: $V_{\text{in-phase}} = E_b + I(R_a + R_f)$.</li>
+          <li>Total quadrature inductive drop: $V_{\text{quadrature}} = j I (X_a + X_f)$ leading current by $90^\circ$.</li>
+          <li>Resultant supply voltage:
+            <div class="eq-block">
+              $$\bar{V} = [E_b + I(R_a + R_f)] + j I(X_a + X_f)$$
+              $$V = \sqrt{[E_b + I(R_a + R_f)]^2 + [I(X_a + X_f)]^2}$$
+            </div>
+            Operating power factor is $\cos\phi = \frac{E_b + I(R_a + R_f)}{V}$.
+          </li>
+        </ol>
+        
+        <div class="diagram">
+          <div class="img-name">universal_motor_circuit_phasor.png</div>
+          <p>Upload: Universal motor series equivalent circuit + phasor diagram</p>
+          <img src="images/universal_motor_circuit_phasor.png" alt="Universal motor equivalent circuit and phasor" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /mod5 -->
+
+<!-- Q20c NEW – Linear Synchronous Motor (LSM) -->
+<div class="q-card important" id="q20c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">20c</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the construction and working principle of a Linear Synchronous Motor (LSM). What are its advantages over a Linear Induction Motor (LIM)?</div>
+      <div class="q-tags">
+        <span class="tag marks">7 Marks</span>
+        <span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag imp-tag">⭐ Syllabus Core</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (7 Marks)</h4>
+      <div class="answer-text">
+<p>A <span class="tech-term" data-def="Linear Synchronous Motor (LSM): An AC linear motor where the secondary (mover) moves synchronously with the linear traveling magnetic wave produced by the primary track without slip.">Linear Synchronous Motor (LSM)</span> produces direct linear propulsion at synchronous velocity by locking vehicle-mounted field poles with a guideway-mounted traveling magnetic wave.</p>
+
+        <h5>1. Construction &amp; Working Principle:</h5>
+        <ul>
+          <li><b>Primary (Guideway Track):</b> A 3-phase AC distributed winding embedded inside a laminated iron stator track laid along the entire length of the transit guideway. Fed by variable-voltage variable-frequency (VVVF) inverters to produce a traveling magnetic wave moving at synchronous velocity:
+            $$v_s = 2 \tau f$$
+          </li>
+          <li><b>Secondary (Vehicle Mover):</b> Mounted on board the moving vehicle; consists of high-energy permanent magnets or excited superconducting electromagnets with alternating North and South poles.</li>
+          <li><b>Working Principle:</b> The magnetic poles of the vehicle secondary lock magnetically with the traveling magnetic poles of the track primary. The vehicle is propelled synchronously with the traveling wave with zero slip ($v = v_s$). Linear thrust is governed by:
+            <div class="eq-block">
+              $$F_s = \frac{3\pi}{\tau} \psi_{pm} I_s \sin\delta$$
+            </div>
+            Where $\delta$ is the power angle between track primary and vehicle field waves.</li>
+        </ul>
+        
+        <div class="diagram">
+          <div class="img-name">lsm_construction_principle.png</div>
+          <p>Upload: LSM construction diagram showing primary winding, PM/SC secondary, TMF direction, thrust force and load angle δ</p>
+          <img src="images/lsm_construction_principle.png" alt="LSM construction and working principle" onload="this.classList.add('loaded')">
+        </div>
+
+
+        <h5>2. Advantages of LSM over Linear Induction Motor (LIM):</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Comparison Parameter</th>
+              <th>Linear Synchronous Motor (LSM)</th>
+              <th>Linear Induction Motor (LIM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Operating Efficiency</b></td>
+              <td>High efficiency ($> 85-90\%$); zero secondary rotor copper losses because secondary moves synchronously ($s = 0$).</td>
+              <td>Lower efficiency ($60-70\%$); continuous $I^2 R$ slip losses in the conductive secondary reaction plate.</td>
+            </tr>
+            <tr>
+              <td><b>Air-Gap Clearance</b></td>
+              <td>Operates with a large, comfortable air gap ($10-25\text{ cm}$) when superconducting magnets are used.</td>
+              <td>Requires a very small, critical air gap ($1-3\text{ cm}$) to maintain magnetizing reactance, risking track contact.</td>
+            </tr>
+            <tr>
+              <td><b>High-Speed Performance</b></td>
+              <td>Maintains high thrust and efficiency at ultra-high velocities ($> 500\text{ km/h}$).</td>
+              <td>Performance degrades severely at high speeds due to longitudinal end effects.</td>
+            </tr>
+            <tr>
+              <td><b>Power Factor</b></td>
+              <td>High power factor; can operate at unity or leading power factor by over-exciting the secondary field.</td>
+              <td>Inherently poor lagging power factor ($0.5-0.7$) caused by large air-gap magnetizing reactance.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     GLOSSARY
+════════════════════════════════════════════ -->
+<div id="glossary" class="glossary-section">
+  <h3>📚 Technical Terms Glossary — Memorise These!</h3>
+  <div class="term-grid">
+    <div class="term-card"><div class="term">BLDC Motor</div><div class="def">Brushless DC Motor. Uses electronic commutation. PM rotor, 3-phase stator. High efficiency, no brushes.</div></div>
+    <div class="term-card"><div class="term">PMSM</div><div class="def">Permanent Magnet Synchronous Motor. Three-phase AC, PM rotor, runs at synchronous speed.</div></div>
+    <div class="term-card"><div class="term">VR Stepper</div><div class="def">Variable Reluctance Stepper. Soft-iron toothed rotor, no magnets. Operates by minimising reluctance.</div></div>
+    <div class="term-card"><div class="term">Hybrid Stepper</div><div class="def">Combines VR + PM principles. Axially-magnetised PM between two toothed cups. 1.8°/step standard.</div></div>
+    <div class="term-card"><div class="term">SRM</div><div class="def">Switched Reluctance Motor. Doubly-salient, singly-excited. No rotor windings/magnets. Phases switched to produce torque.</div></div>
+    <div class="term-card"><div class="term">SynRM</div><div class="def">Synchronous Reluctance Motor. Salient rotor (flux barriers), no magnets. Torque from Ld-Lq saliency.</div></div>
+    <div class="term-card"><div class="term">Step Angle</div><div class="def">The angular distance moved by the rotor per input pulse. θ_s = 360°/(Nr × Nph) for VR stepper.</div></div>
+    <div class="term-card"><div class="term">Microstepping</div><div class="def">Dividing a full step into N sub-steps using sinusoidal current ratios. Gives smooth, high-resolution motion.</div></div>
+    <div class="term-card"><div class="term">Back-EMF</div><div class="def">Voltage induced in stator by rotating PM rotor. Used for rotor position estimation in sensorless control.</div></div>
+    <div class="term-card"><div class="term">Pull-In Torque</div><div class="def">Max torque at which stepper can start/stop without losing steps at a given pulse rate.</div></div>
+    <div class="term-card"><div class="term">Pull-Out Torque</div><div class="def">Max torque a running stepper can sustain without losing steps.</div></div>
+    <div class="term-card"><div class="term">Slew Range</div><div class="def">Pulse rate range between pull-in and pull-out. Motor can run here but cannot start/stop directly.</div></div>
+    <div class="term-card"><div class="term">Torque Ripple</div><div class="def">Periodic variation in output torque. Causes vibration and noise. Reduced by microstepping or multi-phase overlap.</div></div>
+    <div class="term-card"><div class="term">Saliency Ratio (ξ)</div><div class="def">Ld/Lq for SynRM. Higher value means more reluctance torque per ampere.</div></div>
+    <div class="term-card"><div class="term">MTPA</div><div class="def">Maximum Torque Per Ampere. Optimal split of id and iq to maximise torque for a given stator current magnitude.</div></div>
+    <div class="term-card"><div class="term">FOC (Field Oriented Control)</div><div class="def">Vector control of AC motors. Decouples flux and torque control using d-q transformation. Enables DC-motor-like dynamic response.</div></div>
+    <div class="term-card"><div class="term">Hall-Effect Sensor</div><div class="def">Detects rotor magnet pole position. Three sensors at 120° give 6 commutation signals per electrical cycle in BLDC.</div></div>
+    <div class="term-card"><div class="term">Clarke Transform</div><div class="def">Converts 3-phase (a,b,c) to 2-phase stationary (α,β) frame. Reduces variables without rotating reference.</div></div>
+    <div class="term-card"><div class="term">Park Transform</div><div class="def">Converts stationary (α,β) to rotating (d,q) reference frame aligned with rotor flux. Enables DC-like control.</div></div>
+    <div class="term-card"><div class="term">PWM</div><div class="def">Pulse Width Modulation. Controls average voltage by varying switch duty cycle. Used in inverters to drive AC motors.</div></div>
+    <div class="term-card"><div class="term">Drag Cup Rotor</div><div class="def">Thin hollow aluminium cylinder rotor for AC servomotor. Extremely low inertia → fast dynamic response.</div></div>
+    <div class="term-card"><div class="term">Transfer Function</div><div class="def">Ratio of Laplace output to Laplace input. Represents system dynamics in s-domain for control analysis.</div></div>
+    <div class="term-card"><div class="term">Hysteresis Angle</div><div class="def">Angle by which rotor flux lags stator MMF in hysteresis motor. Constant → constant torque independent of slip.</div></div>
+    <div class="term-card"><div class="term">LIM (Linear Induction Motor)</div><div class="def">Rotary IM 'unrolled' flat. Produces linear thrust. Used in maglev, conveyors, sliding doors.</div></div>
+    <div class="term-card"><div class="term">Transverse Edge Effect</div><div class="def">In LIM, finite-width secondary causes distorted induced current paths at edges. Reduces thrust and increases reactive power.</div></div>
+    <div class="term-card"><div class="term">End Effect (LIM)</div><div class="def">At entry/exit ends of LIM primary, flux is not periodic. Creates braking currents at entry end. Worse at high speeds.</div></div>
+    <div class="term-card"><div class="term">Asymmetric Half-Bridge</div><div class="def">Standard SRM power converter. 2 switches + 2 diodes per phase. Provides magnetisation, freewheeling, and demagnetisation.</div></div>
+    <div class="term-card"><div class="term">Repulsion Motor</div><div class="def">Single-phase AC motor. Brush-short-circuited armature. Brush axis angle controls torque. High starting torque.</div></div>
+    <div class="term-card"><div class="term">Universal Motor</div><div class="def">Series-wound motor working on AC or DC. Used in power tools, vacuum cleaners. Very high speed.</div></div>
+    <div class="term-card"><div class="term">Remanent Flux Density (Br)</div><div class="def">Flux density remaining in magnet after removal of external field. High Br = stronger magnet.</div></div>
+    <div class="term-card"><div class="term">Coercivity (Hc)</div><div class="def">Field needed to demagnetise a magnet. High Hc = resistant to demagnetisation (needed in PMDC/BLDC/PMSM).</div></div>
+    <div class="term-card"><div class="term">NdFeB</div><div class="def">Neodymium Iron Boron. Highest energy product rare-earth magnet. Used in modern BLDC/PMSM motors.</div></div>
+    <div class="term-card"><div class="term">Self-Control (PMSM)</div><div class="def">Drive scheme where inverter frequency is determined by actual rotor position (encoder). Stator frequency = rotor speed always. Eliminates loss of synchronism.</div></div>
+    <div class="term-card"><div class="term">Armature-Controlled DC Servo</div><div class="def">DC servo where armature voltage is the control input; field current is constant. Type-1, 2nd-order system. Faster response than field-controlled.</div></div>
+    <div class="term-card"><div class="term">Co-energy ($W_c$)</div><div class="def">For a linear magnetic system, co-energy = field energy = ½Li². Partial derivative of co-energy w.r.t. position at constant current gives electromagnetic torque.</div></div>
+    <div class="term-card"><div class="term">PM Stepper Motor</div><div class="def">Stepper motor with a cylindrical PM rotor (no teeth). Has detent torque. Larger step angles (7.5°–90°). Used in printers, cameras, and clocks.</div></div>
+    <div class="term-card"><div class="term">Holding Torque</div><div class="def">Peak of the sinusoidal static torque-displacement curve of a stepper motor. Maximum torque the motor can withstand without stepping to wrong position.</div></div>
+    <div class="term-card"><div class="term">Static Position Error</div><div class="def">Angular displacement of rotor equilibrium from ideal step position due to load torque. θ_e = (θ_s/π)×arcsin(T_L/T_max).</div></div>
+    <div class="term-card"><div class="term">LSM (Linear Synchronous Motor)</div><div class="def">PM or SC electromagnets on mover lock to Travelling Magnetic Field. No slip. Higher efficiency and power factor than LIM. Used in maglev and precision stages.</div></div>
+    <div class="term-card"><div class="term">AC Servomotor</div><div class="def">Two-phase induction motor used in servo systems. High-resistance rotor gives negative T-N slope → stable servo operation. TF: K_m / [s(1 + sτ_m)].</div></div>
+    <div class="term-card"><div class="term">SRM Inductance Profile</div><div class="def">L(θ) varies between L_al (aligned) and L_un (unaligned). Positive dL/dθ → motoring torque. Phase must be switched OFF when dL/dθ becomes negative.</div></div>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:24px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;margin-top:40px;">
+  EET426 · Special Electric Machines · KTU B.Tech S8 · 2019 Scheme · Study Guide<br>
+  <span style="color:var(--accent);">Upload images to <code>sem-study-site/images/</code> folder using the filenames shown in each diagram box.</span>
+</footer>
+
+<script>
+function toggle(header){
+  const card = header.closest('.q-card');
+  card.classList.toggle('open');
+}
+
+// Try loading all images and show them if they exist
+document.querySelectorAll('.diagram img').forEach(img => {
+  img.onerror = function(){ this.style.display='none'; };
+});
+
+// Activate nav links on scroll
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav-bar a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if(window.scrollY >= section.offsetTop - 120) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+
+// Open first card of each module by default
+document.querySelectorAll('.q-card.important:first-of-type').forEach(c => c.classList.add('open'));
+
+// Theme Toggle System
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('sem_theme', theme);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    if (theme === 'light') {
+      btn.querySelector('.theme-icon').textContent = '🌙';
+      btn.querySelector('.theme-text').textContent = 'Dark Mode';
+    } else {
+      btn.querySelector('.theme-icon').textContent = '☀️';
+      btn.querySelector('.theme-text').textContent = 'Light Mode';
+    }
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  setTheme(current === 'light' ? 'dark' : 'light');
+}
+
+// Initialise theme button on load
+document.addEventListener('DOMContentLoaded', () => {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  setTheme(current);
+});
+</script>
+</body>
+</html>
