@@ -677,12 +677,12 @@
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat">Total Questions: <b>73+</b></div>
-  <div class="stat imp">⭐ Important: <b>30</b></div>
-  <div class="stat">Papers Covered: <b>4</b> (2023–2026)</div>
+  <div class="stat">Total Question Sets: <b>49 cards (80+ Qs)</b></div>
+  <div class="stat imp">⭐ Important: <b>45</b></div>
+  <div class="stat">Papers Covered: <b>5</b> (2023–2026)</div>
   <div class="stat">Modules: <b>5</b></div>
-  <div class="stat">3-mark Qs: <b>18</b></div>
-  <div class="stat">14-mark Qs: <b>15 sets</b></div>
+  <div class="stat">3-mark Qs: <b>22</b></div>
+  <div class="stat">Part B Qs: <b>27 sets</b></div>
 </div>
 
 <main>
@@ -824,7 +824,7 @@
       <div class="q-text">Draw and explain the dynamic characteristics of a stepper motor.</div>
       <div class="q-tags">
         <span class="tag marks">3 Marks</span>
-        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
         <span class="tag imp-tag">⭐ Repeated</span>
         <span class="tag part">Part A</span>
       </div>
@@ -887,14 +887,15 @@
 </div>
 
 <!-- Q6 -->
-<div class="q-card" id="q6">
+<div class="q-card important" id="q6">
   <div class="q-header" onclick="toggle(this)">
     <div class="q-num">6</div>
     <div class="q-meta">
       <div class="q-text">List any two causes for noise in a switched reluctance motor and explain how they can be mitigated.</div>
       <div class="q-tags">
         <span class="tag marks">3 Marks</span>
-        <span class="tag year">2026</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Repeated</span>
         <span class="tag part">Part A</span>
       </div>
     </div>
@@ -1441,6 +1442,172 @@
   </div>
 </div>
 
+<!-- Sep 2025 NEW Part A additions -->
+
+<!-- Q_S1 – Applications of PM DC motors -->
+<div class="q-card important" id="qs1">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">S1</div>
+    <div class="q-meta">
+      <div class="q-text">List the applications of Permanent Magnet DC (PMDC) motors.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+        <p>A <span class="tech-term" data-def="PMDC Motor: Permanent Magnet DC Motor. Uses fixed PM poles instead of wound field coils. Compact, efficient, no field copper loss, linear torque-speed characteristics. Common in battery-powered and embedded-drive applications.">PMDC motor</span> replaces the wound field with permanent magnets, making it compact and efficient. Applications span a very wide range:</p>
+        <h5>Automotive / Transportation</h5>
+        <ul>
+          <li>Windshield wipers, window lifts, seat adjusters, HVAC blowers in cars</li>
+          <li>Electric windows and sunroof drives</li>
+          <li>Electric bicycles and scooters (fractional kW PMDC)</li>
+        </ul>
+        <h5>Consumer Electronics / Appliances</h5>
+        <ul>
+          <li>Cooling fans in laptops, computers, projectors</li>
+          <li>Hard disk drive spindle motors, CD/DVD drives</li>
+          <li>Electric razors, hair dryers, mixers</li>
+          <li>Toys and hobby RC motors</li>
+        </ul>
+        <h5>Medical / Precision Instruments</h5>
+        <ul>
+          <li>Medical pumps, infusion pumps, surgical drills</li>
+          <li>Dental handpieces (at very high speed)</li>
+          <li>Instrument recorders, chart drives</li>
+        </ul>
+        <h5>Industrial / Control</h5>
+        <ul>
+          <li>Servo drive actuators in small CNC and robotics</li>
+          <li>Conveyor belt drives (fractional kW)</li>
+          <li>Valve actuators, damper drives</li>
+        </ul>
+        <p><b>Key reason for wide adoption:</b> PMDC motors offer linear torque-speed characteristics, easy speed control via armature voltage, high starting torque, and no field power loss — making them ideal for battery-powered and embedded applications.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_S2 – Compare AC servomotor and DC servomotor -->
+<div class="q-card important" id="qs2">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">S2</div>
+    <div class="q-meta">
+      <div class="q-text">Compare AC servomotor and DC servomotor.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+        <table>
+          <tr><th>Feature</th><th>AC Servomotor</th><th>DC Servomotor</th></tr>
+          <tr><td>Construction</td><td>Two-phase induction motor (squirrel cage or drag-cup rotor)</td><td>Separately excited or PM DC motor with commutator and brushes</td></tr>
+          <tr><td>Control input</td><td>Amplitude (or phase) of control winding voltage $V_c$</td><td>Armature voltage $V_a$ (armature-controlled) or field voltage $V_f$ (field-controlled)</td></tr>
+          <tr><td>T-N characteristic</td><td>Negative slope across all speeds — inherently stable</td><td>Linear, highly predictable — stable in closed loop</td></tr>
+          <tr><td>Maintenance</td><td>Brushless — virtually maintenance-free</td><td>Brushes and commutator require periodic maintenance</td></tr>
+          <tr><td>Power rating</td><td>Low (fractional W to ~100 W); used in instruments</td><td>From fractional W to several kW; wider range</td></tr>
+          <tr><td>Efficiency</td><td>Lower (high-resistance rotor for negative slope)</td><td>Higher (low resistance armature)</td></tr>
+          <tr><td>Noise</td><td>Low electrical noise</td><td>Commutator sparking causes electrical noise</td></tr>
+          <tr><td>Speed range</td><td>Moderate</td><td>Wide — good speed range</td></tr>
+          <tr><td>Applications</td><td>Gyroscopes, small position servos, radar antennas</td><td>Machine tool servos, robotics, high-performance drives</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_S3 – Types of damping in AC servomotors -->
+<div class="q-card important" id="qs3">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">S3</div>
+    <div class="q-meta">
+      <div class="q-text">What are the different types of damping in AC servomotors? Explain briefly.</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+        <p>In an <span class="tech-term" data-def="AC Servomotor Damping: Damping refers to the mechanism that opposes oscillatory motion and brings the servo to its commanded position without sustained oscillation. In AC servomotors, damping arises from both motor design and external control circuits.">AC servomotor</span>, damping is essential for stable, precise servo operation. There are two primary types:</p>
+        <h5>1. Inherent (Motor) Damping — Electromagnetic Damping</h5>
+        <p>The negative slope of the torque-speed characteristic provides <b>electromagnetic damping</b>. When the rotor exceeds the synchronous speed (overshoots), the torque becomes negative (braking), pulling it back. Mathematically, the equivalent damping coefficient is:</p>
+        <div class="eq-block">
+          $$m = -\frac{dT}{d\omega}\bigg|_{\omega_0} > 0$$
+        </div>
+        <div class="eq-vars">$m$ = viscous damping factor due to negative slope of T-ω curve, $\omega_0$ = operating speed</div>
+        <p>A higher-resistance rotor (which gives steeper negative slope) provides more inherent damping. This appears as the term $m$ in the mechanical time constant $\tau_m = J/(B+m)$.</p>
+        <h5>2. External Damping</h5>
+        <p>When motor damping alone is insufficient (especially in lightly loaded systems):</p>
+        <ul>
+          <li><b>Viscous Damper:</b> A mechanical dashpot (fluid-filled coupling) added to the shaft. Produces damping torque proportional to speed: $T_d = D\dot{\theta}$.</li>
+          <li><b>Drag-Cup Rotor Damping:</b> The thin-walled aluminium drag-cup produces eddy current damping inherently at high speeds.</li>
+          <li><b>Electronic Damping (Derivative Control):</b> A tachogenerator feedback signal proportional to speed (the derivative of position) is fed back with negative sign — equivalent to adding viscous damping electronically without mechanical parts. Most commonly used in modern servo systems.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q_S4 – Transverse edge effects in Linear Induction Motors (Sep 2025 Part A Q10) -->
+<div class="q-card important" id="qs4">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">S4</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the transverse edge effects in Linear Induction Motors (LIM).</div>
+      <div class="q-tags">
+        <span class="tag marks">3 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Part A</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer</h4>
+      <div class="answer-text">
+        <p>In a <span class="tech-term" data-def="Transverse Edge Effect: In a LIM, because the reaction rail has finite lateral width, induced eddy currents must close their loops by turning along the lateral edges. This distorts current paths and flux distribution.">Linear Induction Motor (LIM)</span>, the secondary reaction sheet (aluminum or copper plate) has finite lateral width. As a result, the secondary induced eddy currents cannot flow purely in the ideal transverse direction perpendicular to motion.</p>
+        <h5>1. Physical Phenomenon:</h5>
+        <ul>
+          <li>Near the lateral edges of the reaction plate, current paths are forced to curve and circulate longitudinally to complete their return loops.</li>
+          <li>This current curving introduces <b>longitudinal current components</b> that do not interact constructively with the traveling magnetic field.</li>
+        </ul>
+        <h5>2. Consequences on Motor Performance:</h5>
+        <ol>
+          <li><b>Reduction in Linear Thrust:</b> The effective thrust-producing transverse current is reduced, lowering developed linear force.</li>
+          <li><b>Increase in Effective Secondary Resistance:</b> The secondary resistance increases from $R_2$ to $R_2' = k_{tr} R_2$, where $k_{tr} > 1$ is the transverse edge factor.</li>
+          <li><b>Non-Uniform Flux Distribution:</b> Air-gap flux density is weakened near the lateral edges and peaks toward the center of the core width.</li>
+          <li><b>Poorer Efficiency &amp; Power Factor:</b> Additional $I^2 R$ losses and reduced magnetizing reactance degrade performance.</li>
+        </ol>
+        <p><b>Mitigation:</b> Using an <b>overhanging reaction plate</b> where the secondary sheet width ($w$) exceeds the primary stator core stack width ($W$) by at least one pole pitch ($w \ge W + \tau$), allowing return currents to flow freely in low-resistance overhang regions without constricting the active zone.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div><!-- /parta -->
 
 
@@ -1696,7 +1863,113 @@
     </div>
   </div>
 </div>
-</div><!-- /mod1 -->
+
+<!-- Q11b NEW – Advantages/disadvantages of PM BLDC motors (Sep 2025 Q11b) -->
+<div class="q-card important" id="q11b">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">11b</div>
+    <div class="q-meta">
+      <div class="q-text">Mention the advantages and disadvantages of Permanent Magnet Brushless DC (BLDC) motors.</div>
+      <div class="q-tags">
+        <span class="tag marks">4 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (4 Marks)</h4>
+      <div class="answer-text">
+        <h5>Advantages of PM BLDC Motors</h5>
+        <ol>
+          <li><b>High Efficiency:</b> No field excitation losses (PM provides flux at zero power). Efficiency typically 85–95%, much higher than brushed DC or induction motors at equivalent ratings.</li>
+          <li><b>Maintenance-Free:</b> No brushes or commutator — no mechanical wear, no sparking, no periodic brush replacement. Life limited only by bearings.</li>
+          <li><b>High Power Density:</b> PM flux is concentrated and strong (NdFeB) — higher torque per unit volume and weight than equivalent induction or wound-field machines.</li>
+          <li><b>Excellent Speed Range:</b> Precise speed control from standstill to high speed via inverter; suitable for both constant-torque and constant-power (field-weakening) operation.</li>
+          <li><b>Fast Dynamic Response:</b> High torque-to-inertia ratio → rapid acceleration and deceleration, ideal for servo applications.</li>
+          <li><b>Low Electrical Noise:</b> No commutator sparking → low EMI. Suitable for medical and sensitive electronic environments.</li>
+          <li><b>Reliable at High Speed:</b> No brush contact pressure limit — can run at very high speeds (50,000+ RPM in miniature designs).</li>
+        </ol>
+        <h5>Disadvantages of PM BLDC Motors</h5>
+        <ol>
+          <li><b>High Initial Cost:</b> Rare-earth PMs (NdFeB, SmCo) are expensive. Drive electronics (inverter + position sensor) add to cost.</li>
+          <li><b>Requires Electronic Commutation:</b> Cannot self-start from a simple DC supply; needs a 3-phase inverter with rotor position sensing (Hall sensors or encoder).</li>
+          <li><b>Demagnetisation Risk:</b> PMs can be partially or permanently demagnetised by excessive current (armature reaction), high temperature, or opposing magnetic fields.</li>
+          <li><b>Limited Speed without Field Weakening:</b> Back-EMF increases linearly with speed; above base speed, inverter must implement field-weakening to extend speed range.</li>
+          <li><b>Torque Ripple:</b> Commutation events cause torque pulsation (especially in 120° commutation), requiring careful current shaping in high-precision applications.</li>
+          <li><b>Temperature Sensitivity:</b> PM flux and coercivity decrease with temperature; motor must be derated at high ambient temperatures.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q12-Sep25 NEW – BLDC 180° commutation (Sep 2025 Q12a, 14 marks) -->
+<div class="q-card important" id="q12sep">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">12★</div>
+    <div class="q-meta">
+      <div class="q-text">Explain the principle of operation of a Permanent Magnet Brushless DC (BLDC) motor for 180° commutation with neat diagrams. Compare 120° and 180° commutation.</div>
+      <div class="q-tags">
+        <span class="tag marks">14 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Module I</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Full Answer (14 Marks)</h4>
+      <div class="answer-text">
+        <h5>1. BLDC Motor — Basic Principle (Recap)</h5>
+        <p>A BLDC motor has a wound 3-phase stator and a PM rotor. The DC supply is electronically commutated (switched) by a 3-phase inverter bridge based on rotor position (Hall sensors or encoder), creating a rotating stator MMF that always pulls the PM rotor forward — equivalent to a rotary DC motor with electronic commutation replacing mechanical brushes.</p>
+        <h5>2. 180° Commutation</h5>
+        <p>In <span class="tech-term" data-def="180° Commutation: Each phase conducts for 180° of electrical cycle (as opposed to 120°). At any instant, all three phases carry current. Produces smoother torque but requires sinusoidal or quasi-sinusoidal currents and more sophisticated control.">180° commutation</span>, each phase winding conducts current for a full 180° electrical cycle. At any given instant, <b>all three phases carry current simultaneously</b> (unlike 120° mode where only two phases conduct at a time).</p>
+        <h5>3. Phase Current Waveforms (180° mode)</h5>
+        <ul>
+          <li>Phase A: Positive for 0°–180°, then negative for 180°–360° (quasi-square or sinusoidal)</li>
+          <li>Phase B: Same, but delayed 120°</li>
+          <li>Phase C: Same, but delayed 240°</li>
+        </ul>
+        <p>The phase currents ideally follow a sinusoidal pattern $i_a = I_m\sin(\omega t)$, $i_b = I_m\sin(\omega t - 120°)$, $i_c = I_m\sin(\omega t - 240°)$, making this equivalent to sinusoidal field-oriented control (FOC).</p>
+        <div class="eq-block">
+          $$T_e = \frac{3}{2}\cdot\frac{P}{2}\cdot\lambda_m\cdot i_q$$
+        </div>
+        <div class="eq-vars">$\lambda_m$ = PM flux linkage, $i_q$ = quadrature-axis current component, $P$ = number of poles</div>
+        <h5>4. Six-Step Switching Sequence (180° mode — 6 active vectors)</h5>
+        <p>The inverter generates 6 active voltage vectors (plus 2 zero vectors in sinusoidal PWM). The duty cycle of each switch is modulated sinusoidally per phase, unlike the step-wise on/off of 120° mode.</p>
+        <table>
+          <tr><th>Rotor Angle Sector</th><th>Conducting Switches</th><th>Conducting Phases</th></tr>
+          <tr><td>0°–60°</td><td>S1, S6, S2 (all three)</td><td>All three — sinusoidal PWM</td></tr>
+          <tr><td colspan="3" style="text-align:center;font-style:italic">... continues for all 6 sectors, each phase contributing positive/negative current throughout</td></tr>
+        </table>
+        <h5>5. 120° vs 180° Commutation Comparison</h5>
+        <table>
+          <tr><th>Feature</th><th>120° Commutation</th><th>180° Commutation</th></tr>
+          <tr><td>Phase conduction angle</td><td>120° per cycle</td><td>180° per cycle</td></tr>
+          <tr><td>Phases active simultaneously</td><td>2 of 3</td><td>All 3</td></tr>
+          <tr><td>Torque ripple</td><td>Higher (~14% ripple)</td><td>Very low (near-zero with sinusoidal)</td></tr>
+          <tr><td>Back-EMF shape assumed</td><td>Trapezoidal (flat-top)</td><td>Sinusoidal</td></tr>
+          <tr><td>Current waveform</td><td>Quasi-square (rectangular)</td><td>Sinusoidal (requires PWM modulation)</td></tr>
+          <tr><td>Control complexity</td><td>Simple — only 3 Hall sensor states</td><td>Complex — requires real-time current control (FOC)</td></tr>
+          <tr><td>Utilisation of winding</td><td>Lower (only 2/3 phases active)</td><td>Higher (all phases used)</td></tr>
+          <tr><td>Efficiency</td><td>Good</td><td>Excellent (better copper utilisation)</td></tr>
+          <tr><td>Application</td><td>Fan drives, pumps, moderate precision</td><td>Servo drives, EV traction, high precision</td></tr>
+        </table>
+        <div class="diagram">
+          <div class="img-name">bldc_180_commutation.png</div>
+          <p>Upload: BLDC 180° commutation — sinusoidal phase current waveforms vs 120° square wave, switching sequence, stator MMF vectors</p>
+          <img src="images/bldc_180_commutation.png" alt="BLDC 180° commutation waveforms" onload="this.classList.add('loaded')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Q12c NEW – PMSM Self-Control Scheme -->
 <div class="q-card important" id="q12c">
@@ -1775,6 +2048,7 @@
     </div>
   </div>
 </div>
+</div><!-- /mod1 -->
 
 
 <!-- ═══════════════════════════════════════════
@@ -1963,7 +2237,6 @@
     </div>
   </div>
 </div>
-</div><!-- /mod2 -->
 
 <!-- Q14b NEW – PM Stepper Motor -->
 <div class="q-card important" id="q14b">
@@ -2098,6 +2371,7 @@
     </div>
   </div>
 </div>
+</div><!-- /mod2 -->
 
 
 <!-- ═══════════════════════════════════════════
@@ -2314,7 +2588,6 @@
     </div>
   </div>
 </div>
-</div><!-- /mod3 -->
 
 <!-- Q15c NEW – SRM Construction & Energy-based Torque Derivation -->
 <div class="q-card important" id="q15c">
@@ -2403,6 +2676,7 @@
     </div>
   </div>
 </div>
+</div><!-- /mod3 -->
 
 
 <!-- ═══════════════════════════════════════════
@@ -2641,7 +2915,6 @@
     </div>
   </div>
 </div>
-</div><!-- /mod4 -->
 
 <!-- Q18c NEW – Armature-Controlled DC Servomotor Transfer Function -->
 <div class="q-card important" id="q18c">
@@ -2792,6 +3065,45 @@
   </div>
 </div>
 
+<!-- Q18e NEW – Requirements of a Good Servomotor (Sep 2025 Q18b) -->
+<div class="q-card important" id="q18e">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">18e</div>
+    <div class="q-meta">
+      <div class="q-text">What are the requirements of a good servomotor? (Sep 2025 — 4 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">4 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Module IV</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (4 Marks)</h4>
+      <div class="answer-text">
+        <p>A <span class="tech-term" data-def="Servomotor Requirements: Key physical and electrical attributes needed for precise closed-loop tracking, high dynamic stability, and fast response in feedback control systems.">servomotor</span> is an electromechanical actuator used in closed-loop feedback control systems. A high-performance servomotor must satisfy the following critical requirements:</p>
+        <ol>
+          <li><b>Linear Torque-Speed Characteristics:</b> The torque-speed curve must be strictly linear with a continuous <b>negative slope</b> ($\frac{dT}{d\omega} < 0$) across the entire operating speed range. This ensures high internal damping, prevents single-phasing, and eliminates hunting/oscillations.</li>
+          <li><b>High Torque-to-Inertia Ratio ($T/J$):</b> The rotor must have very low moment of inertia ($J$) and high stall torque ($T_{stall}$). This guarantees ultra-fast dynamic acceleration, deceleration, and high bandwidth response to step commands.</li>
+          <li><b>Linear Control Characteristics:</b> The developed torque must be directly and linearly proportional to the applied control signal ($T \propto V_c$ or $T \propto I_a$).</li>
+          <li><b>Small Mechanical Time Constant ($\tau_m$):</b> The time required for the motor to reach 63.2% of its final steady-state speed must be exceptionally small (a few milliseconds) for instantaneous command tracking:
+            <div class="eq-block">$$\tau_m = \frac{J}{B_{\text{eff}}} \ll 1$$</div>
+          </li>
+          <li><b>Absence of Single-Phasing (for AC Servomotors):</b> When the control voltage is reduced to zero ($V_c = 0$), the motor must immediately decelerate to a dead stop without continuing to rotate on the reference field alone.</li>
+          <li><b>Instant Reversibility:</b> Rapid and symmetrical reversal of rotation when the polarity or phase sequence of the control signal is inverted.</li>
+          <li><b>Wide Linear Speed Range:</b> Smooth, continuous operation from near-zero creep speeds up to maximum rated speed without cogging or deadband.</li>
+          <li><b>High Reliability &amp; Low Maintenance:</b> Rugged construction, minimum brush wear (or completely brushless), and immunity to electrical noise/EMI.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /mod4 -->
+
 
 <!-- ═══════════════════════════════════════════
      MODULE V – LINEAR & SPECIAL MOTORS
@@ -2890,7 +3202,7 @@
       <div class="q-text">Explain the transverse edge effect and end effects in a linear induction motor.</div>
       <div class="q-tags">
         <span class="tag marks">6 Marks</span>
-        <span class="tag year">2026</span><span class="tag year">2024</span>
+        <span class="tag year">2026</span><span class="tag year">2025</span><span class="tag year">2024</span>
         <span class="tag imp-tag">⭐ Repeated</span>
         <span class="tag part">Module V</span>
       </div>
@@ -3080,7 +3392,6 @@
     </div>
   </div>
 </div>
-</div><!-- /mod5 -->
 
 <!-- Q20c NEW – Linear Synchronous Motor (LSM) -->
 <div class="q-card important" id="q20c">
@@ -3090,7 +3401,7 @@
       <div class="q-text">Explain the construction and working principle of a Linear Synchronous Motor (LSM). What are its advantages over a Linear Induction Motor (LIM)?</div>
       <div class="q-tags">
         <span class="tag marks">7 Marks</span>
-        <span class="tag year">2024</span><span class="tag year">2023</span>
+        <span class="tag year">2025</span><span class="tag year">2024</span><span class="tag year">2023</span>
         <span class="tag imp-tag">⭐ Syllabus Core</span>
         <span class="tag part">Module V</span>
       </div>
@@ -3160,6 +3471,68 @@
   </div>
 </div>
 
+<!-- Q19c NEW – Goodness Factor of LIM (Sep 2025 Q19b) -->
+<div class="q-card important" id="q19c">
+  <div class="q-header" onclick="toggle(this)">
+    <div class="q-num">19c</div>
+    <div class="q-meta">
+      <div class="q-text">Define goodness factor of a Linear Induction Motor (LIM) with equations. Explain its physical significance. (Sep 2025 — 4 marks)</div>
+      <div class="q-tags">
+        <span class="tag marks">4 Marks</span>
+        <span class="tag year">2025</span>
+        <span class="tag imp-tag">⭐ Sep 2025</span>
+        <span class="tag part">Module V</span>
+      </div>
+    </div>
+    <div class="q-arrow">▼</div>
+  </div>
+  <div class="q-answer">
+    <div class="answer-body">
+      <h4>Answer (4 Marks)</h4>
+      <div class="answer-text">
+        <p>The <span class="tech-term" data-def="Goodness Factor (G): A dimensionless figure of merit formulated by Prof. E.R. Laithwaite that measures the electromagnetic effectiveness of an electrical machine. It represents the ratio of magnetizing reactance to secondary resistance.">Goodness Factor ($G$)</span>, introduced by Prof. Eric Laithwaite, is a fundamental non-dimensional figure of merit that quantifies the electromagnetic effectiveness of converting electrical energy into mechanical force in electrical machines.</p>
+        
+        <h5>1. Definition and Mathematical Formulation:</h5>
+        <p>In terms of machine equivalent circuit parameters:</p>
+        <div class="eq-block">
+          $$\mathbf{G = \frac{\omega M}{R_2} = \frac{X_m}{R_2}}$$
+        </div>
+        <p>Where $X_m = \omega M$ is the magnetizing reactance of the primary air gap and $R_2$ is the effective resistance of the secondary reaction plate.</p>
+        
+        <h5>2. Formulation in terms of Physical Machine Dimensions:</h5>
+        <p>Expressing $X_m$ and $R_2$ in terms of magnetic and electric circuit dimensions:</p>
+        <div class="eq-block">
+          $$\mathbf{G = \frac{2 \mu_0 f \sigma \tau^2}{\pi g_e} = \frac{\omega \mu_0 \sigma \tau^2}{\pi^2 g_e}}$$
+        </div>
+        <div class="eq-vars">
+          $\mu_0 = 4\pi \times 10^{-7}\text{ H/m}$ (permeability of air gap), $f$ = supply frequency (Hz), $\sigma$ = electrical conductivity of secondary conductor (S/m), $\tau$ = pole pitch (m), $g_e$ = effective magnetic air-gap length including Carter's coefficient and secondary plate thickness.
+        </div>
+
+        <h5>3. Physical Significance:</h5>
+        <ol>
+          <li><b>Criterion for Electromechanical Action:</b>
+            <ul>
+              <li>If $G \gg 1$, the machine behaves primarily as a motor with high efficiency and power factor, because magnetizing reactance dominates secondary resistance.</li>
+              <li>If $G \ll 1$, the machine behaves predominantly as a resistor/heater ($I^2 R$ dissipation dominates); magnetic coupling is too weak to produce useful thrust.</li>
+              <li>A threshold of $G > 1$ is mandatory for any practical motoring action.</li>
+            </ul>
+          </li>
+          <li><b>Why LIMs have Lower Goodness Factor than Rotary Motors:</b>
+            <ul>
+              <li>Conventional rotary induction motors have small air gaps ($g_e \approx 0.5-1\text{ mm}$), yielding $G \approx 50 - 100$.</li>
+              <li>In LIMs, mechanical track clearance and reaction plate thickness necessitate a large air gap ($g_e \approx 5-15\text{ mm}$), resulting in a much lower goodness factor ($G \approx 5 - 25$).</li>
+              <li>This directly explains why LIMs suffer from lower power factor and operating efficiency compared to rotary induction machines.</li>
+            </ul>
+          </li>
+          <li><b>Design Optimization:</b> To maximize $G$, LIM designers maximize pole pitch $\tau$ ($G \propto \tau^2$) and minimize air gap $g_e$ ($G \propto 1/g_e$).</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /mod5 -->
+
 
 <!-- ═══════════════════════════════════════════
      GLOSSARY
@@ -3208,6 +3581,9 @@
     <div class="term-card"><div class="term">LSM (Linear Synchronous Motor)</div><div class="def">PM or SC electromagnets on mover lock to Travelling Magnetic Field. No slip. Higher efficiency and power factor than LIM. Used in maglev and precision stages.</div></div>
     <div class="term-card"><div class="term">AC Servomotor</div><div class="def">Two-phase induction motor used in servo systems. High-resistance rotor gives negative T-N slope → stable servo operation. TF: K_m / [s(1 + sτ_m)].</div></div>
     <div class="term-card"><div class="term">SRM Inductance Profile</div><div class="def">L(θ) varies between L_al (aligned) and L_un (unaligned). Positive dL/dθ → motoring torque. Phase must be switched OFF when dL/dθ becomes negative.</div></div>
+    <div class="term-card"><div class="term">Goodness Factor ($G$)</div><div class="def">Dimensionless metric (Laithwaite) $G = X_m/R_2 = \frac{2\mu_0 f \sigma \tau^2}{\pi g_e}$. Quantifies electrodynamic force capability of electrical machines.</div></div>
+    <div class="term-card"><div class="term">180° Commutation</div><div class="def">BLDC drive mode where each stator phase conducts for a full 180° electrical. All three phases carry current simultaneously, yielding smooth sinusoidal torque.</div></div>
+    <div class="term-card"><div class="term">PMDC Motor</div><div class="def">Permanent Magnet DC motor. Replaces wound field coils with permanent magnets. High efficiency, linear T-N characteristics, no field losses.</div></div>
   </div>
 </div>
 
